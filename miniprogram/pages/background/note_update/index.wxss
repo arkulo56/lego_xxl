@@ -1,0 +1,72 @@
+.note_cover
+{
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.section
+{
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  color: #cccccc;
+  margin-top: 5px;
+  background-color: white;
+  height: 45px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.section_title
+{
+  padding: 0 14px;
+  color:black;
+}
+.picker
+{
+  color:cadetblue;
+  padding: 50px;
+}
+
+.note_content
+{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 5px;
+  font-size: 13px;
+  padding: 15px 15px;
+
+}
+.line{
+margin: 3px auto;
+width: 700rpx;
+height: 2rpx;
+background-color: #D8D8D8;
+}
+.note_content_detail
+{
+  margin-top: 8px;
+  height: 300px;
+}
+
+.note_sub_button
+{
+  display: flex;
+  margin-top: 5px;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.button_preview
+{
+  margin: 0;
+  margin-right: 5px;
+  width: 150px;
+}
+.button_sub
+{
+  margin: 0;
+  margin-right: 5px;
+  width: 150px;
+}

@@ -1,0 +1,29 @@
+<form bindsubmit='formSubmit' bindreset='formReset'>
+
+<view class="header">
+  <view class='input-title'>标题：</view>
+  <view class='input-value'><input name="title" style='width:100%;'></input></view>
+</view>
+
+<view class="header">
+  <view class='input-title'>封面图片：</view>
+  <view class='input-value'><input name="cover_photo"></input></view>
+</view>
+
+<view class="header">
+  <view class='input-title'>排序编号：</view>
+  <view class='input-value'><input name="order_number"></input></view>
+</view>
+
+<view class="content_info">
+  <view class='content-title'>内容：</view>
+  <view class='content-line'></view>
+  <view class='content-value'>
+    <textarea name="content" class='content-text'></textarea>
+  </view>
+</view>
+
+<view class='button-submit'>
+  <button form-type='submit'>提交</button>
+</view>
+</form>

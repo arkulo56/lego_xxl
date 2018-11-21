@@ -1,0 +1,16 @@
+/* pages/background/index/index.wxss */
+.bk_enter
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nag
+{
+  font-size:20px;
+  text-align:center;
+  background-color:azure;
+  margin: 15px 50px;
+  
+}

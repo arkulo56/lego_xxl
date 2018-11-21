@@ -1,0 +1,20 @@
+<wxs module="formatTime" src="../../../utils/util.wxs"></wxs>
+
+<view class="item"  wx:for="{{list}}">
+   <view class='item-1'>
+    <view class='cover-photo'>
+      <image style='width:375rpx;' mode='widthFix' src='{{item.cover_photo}}'></image>
+    </view>
+    <view class='text-info'>
+      <text>发布时间：{{formatTime(item.addtime,2)}}</text>
+      <text>排序数值：{{item.order_number}}</text>
+    </view>
+  </view>
+  
+  <view class='item-2'>
+    <button class='b-b'>下线</button>
+    <button class='b-b'>修改</button>
+    <button class='b-b'>预览</button>
+  </view>
+</view>
+

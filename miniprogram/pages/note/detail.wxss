@@ -1,0 +1,77 @@
+/* pages/note/detail.wxss */
+.note_title{
+  display: flex;
+  background-color: #fffef9;
+  padding: 10px;
+  text-align: left;
+  font-size: 25px;
+  font-weight: bold;
+  color: #336699;
+}
+
+.note_author{
+  background-color: #fffef9;
+  display: flex;
+  margin-top: 2px;
+  flex-direction: row;
+  font-size: 15px;
+  padding: 5px 20px 0 20px;
+  color:#999999;  
+}
+.note_author_value{
+  color:#6699CC
+}
+
+.note_addtime
+{
+  background-color: #fffef9;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  padding: 0 20px 5px 20px;  
+  color:#999999;  
+}
+.note_addtime_value{
+  color:#6699CC
+}
+.note_reading
+{
+  flex-grow: 3;
+  /*background-color: #cccccc;*/
+  text-align: right
+}
+.note_reading_value
+{
+  padding: 0 0 0 5px;
+}
+
+.note_detail{
+  background-color: #fffef9;
+  margin-top: 2px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 50px 20px;
+}
+
+.detail_over
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 2px;
+  background-color: #fffef9;
+  padding: 10px 10px;
+}
+.share_icon
+{
+  padding: 0 15px;
+}
+
+.adv
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #fffef9;
+  /* padding: 0 0 50px 0; */
+}

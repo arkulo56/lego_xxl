@@ -1,0 +1,75 @@
+<form bindsubmit='formSubmit' bindreset='formReset'>
+
+<van-cell-group class="note_title">
+  <van-field
+    label="标题:"
+    value="{{ value }}"
+    placeholder="请输入课后笔记标题"
+    border="{{ false }}"
+    bind:change="onChange"
+    clearable=true
+    name="note_title"
+  />
+</van-cell-group>
+
+<view class="section">
+  <view class="section_title">课程:</view>
+  <picker name="course" bindchange="changeCourse" value="{{courseIndex}}" range="{{courseRange}}">
+    <view class="picker">
+      {{courseRange[courseIndex]}}
+    </view>
+  </picker>
+</view>
+
+<view class="section">
+  <view class="section_title">教师:</view>
+  <picker name="teacher" bindchange="teacherChange" value="{{teacherIndex}}" range="{{teacherRange}}">
+    <view class="picker">
+      {{teacherRange[teacherIndex]}}
+    </view>
+  </picker>
+</view>
+
+
+<view class="section">
+  <view class="section_title">学员:</view>
+  <picker name="student" bindchange="studentChange" value="{{studentIndex}}" range="{{studentRange}}">
+    <view class="picker">
+      {{studentRange[studentIndex]}}
+    </view>
+  </picker>
+</view>
+
+
+<view class='note_cover'>
+<van-cell-group style="width:100%;">
+  <van-field
+    label="封面:"
+    value="{{ value }}"
+    placeholder="请设置封面图片"
+    border="{{ false }}"
+    bind:change="onChange"
+    clearable=true
+    name="cover_img"
+  />
+</van-cell-group>
+</view>
+
+
+<view class='note_content'>
+  <text>内容:</text>
+  <view class='line'></view>
+  <textarea class='note_content_detail' name="note_content">
+  </textarea>
+</view>
+
+
+<view class='note_sub_button'>
+  <!--<button type='primary' class='button_preview'>预览</button>-->
+  <button type='default' form-type='submit' class="button_sub">提交</button>
+</view>
+
+</form>
+
+
+

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "wemark": "../../wemark/wemark",
+    "van-icon": "../../dist/icon/index"
+  }
+}

@@ -1,0 +1,35 @@
+
+<view class='list-header'>
+  <view class='list-select'>
+    <picker bindchange="bindPickerChange" value="{{t_index}}" range="{{teachers}}" range-key="{{'name'}}">
+      <view class="picker">
+        教师：{{teachers[t_index].name}}
+      </view>
+    </picker>
+  </view>
+</view>
+
+
+<scroll-view scroll-y="true" style='height: {{sc_height + "px"}}' class='sv' scroll-top="3"  bindscrolltolower="{{loadMore.hasMore ? 'bindLoadMore' : ''}}" lower-threshold="10">
+
+<view class='list-item' wx:for="{{list}}">
+  <view class='item-img' data-id='{{item._id}}' bindtap='jumpDetail'><image class='img_detail' src='{{imgtmp}}'></image></view>
+  <view class='item-content'>
+    <view class='content_title' data-id='{{item._id}}' bindtap='jumpDetail'>{{item.note_title}}</view>
+    <view class='content_course'>课程：{{item.course_name}}</view>
+    <view class='content_teacher'>教师：{{item.teacher_name}} / 学员：{{item.student_name}}  </view>
+    <view class='item-button'>
+      <view class='content_status'>发布时间：{{item.addtime}}</view>
+      <view class='option'>
+        <text>阅读量:{{item.reading_account}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='ntf'><text>{{loadMore.hasMore?"--上拉加载更多--":"--已全部显示--"}}</text></view>
+</scroll-view>
+
+
+<van-dialog id="van-dialog" />

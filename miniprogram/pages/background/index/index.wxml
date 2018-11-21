@@ -1,0 +1,9 @@
+<view class='bk_enter'>
+  <navigator url='../note_list/index' class='nag'>教学笔记</navigator>
+  <navigator url='' class='nag'>学员管理</navigator>
+  <navigator url='' class='nag'>机构管理</navigator>
+  <navigator url='' class='nag'>教师管理</navigator>
+</view>
+
+
+<van-dialog id="van-dialog" />

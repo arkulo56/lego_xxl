@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-field": "../../../dist/field/index",
+    "van-button": "../../../dist/button/index",
+    "van-switch-cell": "../../../dist/switch-cell/index",
+    "van-dialog": "../../../dist/toast/index"
+  }
+}

@@ -1,0 +1,69 @@
+
+<form bindsubmit='formSubmit' bindreset='formReset'>
+
+<van-cell-group class="note_title">
+  <van-field
+    label="标题:"
+    value="{{ detail.note_title }}"
+    placeholder="请输入课后笔记标题"
+    border="{{ false }}"
+    bind:change="onChange"
+    clearable=true
+    name="note_title"
+  />
+</van-cell-group>
+
+<view class="section">
+  <view class="section_title">课程:</view>
+    <view class="picker">
+      {{detail.course_name}}
+    </view>
+</view>
+
+<view class="section">
+  <view class="section_title">教师:</view>
+    <view class="picker">
+      {{detail.teacher_name}}
+    </view>
+</view>
+
+
+<view class="section">
+  <view class="section_title">学员:</view>
+    <view class="picker">
+      {{detail.student_name}}
+    </view>
+</view>
+
+
+<view class='note_cover'>
+<van-cell-group style="width:100%;">
+  <van-field
+    label="封面:"
+    value="{{ detail.cover_img }}"
+    placeholder="请设置封面图片"
+    border="{{ false }}"
+    bind:change="onChange"
+    clearable=true
+    name="cover_img"
+  />
+</van-cell-group>
+</view>
+
+
+<view class='note_content'>
+  <text>内容:</text>
+  <view class='line'></view>
+  <textarea class='note_content_detail' name="note_content" value="{{detail.note_content}}">
+  </textarea>
+</view>
+
+
+<view class='note_sub_button'>
+  <!--<button type='primary' class='button_preview'>预览</button>-->
+  <button type='default' form-type='submit' class="button_sub">提交</button>
+</view>
+
+</form>
+
+

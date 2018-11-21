@@ -1,0 +1,38 @@
+
+<view class='list-header'>
+  <view class='list-select'>
+    <picker bindchange="bindPickerChange" value="{{t_index}}" range="{{teachers}}" range-key="{{'name'}}">
+      <view class="picker">
+        教师：{{teachers[t_index].name}}
+      </view>
+    </picker>
+  </view>
+  <view class='list-ison'><van-icon name="add-o" bindtap='add_note' /></view>
+</view>
+
+
+<scroll-view scroll-y="true" style='height: {{sc_height + "px"}}' class='sv' scroll-top="3"  bindscrolltolower="{{loadMore.hasMore ? 'bindLoadMore' : ''}}" lower-threshold="10">
+
+<view class='list-item' wx:for="{{list}}">
+  <view class='item-img'><image class='img_detail' src='{{imgtmp}}'></image></view>
+  <view class='item-content'>
+    <view class='content_title'>{{item.note_title}}</view>
+    <view class='content_course'>课程：{{item.course_name}}</view>
+    <view class='content_teacher'>教师：{{item.teacher_name}} / 学员：{{item.student_name}}  </view>
+    <view class='item-button'>
+      <view class='content_status'>状态：{{item.status==0?"未发布":"已发布"}}</view>
+      <view class='option'>
+        <button class='option_button' data-id="{{item._id}}" bindtap='preViewOnclick'>预览</button>
+        <button class='option_button' data-id="{{item._id}}" bindtap='updateOnclick'>修改</button>
+        <button class='option_button' data-id="{{item._id}}" bindtap='deleteOnclick'>删除</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='ntf'><text>{{loadMore.hasMore?"--上拉加载更多--":"--已全部显示--"}}</text></view>
+</scroll-view>
+
+
+<van-dialog id="van-dialog" />
