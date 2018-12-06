@@ -46,7 +46,7 @@
 .img_detail
 {
   width: 150rpx;
-  height: 266rpx;
+  height: 225rpx;
 }
 
 /*中间部分*/
