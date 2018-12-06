@@ -1,4 +1,4 @@
-
+// pages/qrcode_demo/index.js
 Page({
 
   /**
@@ -12,25 +12,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取当前用户的缓存，判定是否为内部教师
-    wx.getStorage({
-      key: 'admin',
-      success: function(res) {
-        //console.log(res)      
-      },
-      fail:function(res)
-      {
-          //关闭的时候跳转至首页
-          wx.navigateBack({
-            delta:1
-          })
-      }
+
+    wx.cloud.init({
+      env: 'logo-xxl'
     })
 
+    wx.cloud.callFunction({
+      name:"getQRcode",
+      data:{
+        moduleKey:"note_detail",
+        params:1
+      },
+      success:res=>{
+        console.log(res)
+      },
+      fail:error=>{
+        console.log(error)
+      }
 
+    })
   },
-
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成

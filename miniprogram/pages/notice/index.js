@@ -1,4 +1,4 @@
-
+// pages/notice/index.js
 Page({
 
   /**
@@ -12,25 +12,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取当前用户的缓存，判定是否为内部教师
-    wx.getStorage({
-      key: 'admin',
-      success: function(res) {
-        //console.log(res)      
-      },
-      fail:function(res)
-      {
-          //关闭的时候跳转至首页
-          wx.navigateBack({
-            delta:1
-          })
-      }
-    })
-
 
   },
-
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成

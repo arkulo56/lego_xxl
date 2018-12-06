@@ -13,18 +13,21 @@
 
 <scroll-view scroll-y="true" style='height: {{sc_height + "px"}}' class='sv' scroll-top="3"  bindscrolltolower="{{loadMore.hasMore ? 'bindLoadMore' : ''}}" lower-threshold="10">
 
-<view class='list-item' wx:for="{{list}}">
-  <view class='item-img'><image class='img_detail' src='{{imgtmp}}'></image></view>
+<view class='list-item' wx:for="{{list}}" wx:key="{{index}}">
+  <view class='item-img'><image class='img_detail' src='{{item.cover_img}}'></image></view>
   <view class='item-content'>
     <view class='content_title'>{{item.note_title}}</view>
     <view class='content_course'>课程：{{item.course_name}}</view>
     <view class='content_teacher'>教师：{{item.teacher_name}} / 学员：{{item.student_name}}  </view>
+    <view>状态：{{item.status==0?"未发布":"已发布"}}</view>
     <view class='item-button'>
-      <view class='content_status'>状态：{{item.status==0?"未发布":"已发布"}}</view>
+      <!-- <view class='content_status'>状态：{{item.status==0?"未发布":"已发布"}}</view> -->
       <view class='option'>
         <button class='option_button' data-id="{{item._id}}" bindtap='preViewOnclick'>预览</button>
         <button class='option_button' data-id="{{item._id}}" bindtap='updateOnclick'>修改</button>
-        <button class='option_button' data-id="{{item._id}}" bindtap='deleteOnclick'>删除</button>
+        <button class='option_button' data-id="{{item._id}}" bindtap='deleteOnclick' wx:if="{{item.status==0}}">删除</button>
+        <button class='option_button' data-id="{{item._id}}" data-index="{{index}}" bindtap='publishNote' wx:if="{{item.status==0}}">发布</button>
+        <button class='option_button' data-id="{{item._id}}" data-index="{{index}}" bindtap='downNote' wx:if="{{item.status==1}}">下线</button>
       </view>
     </view>
   </view>

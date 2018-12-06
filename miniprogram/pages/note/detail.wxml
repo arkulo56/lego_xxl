@@ -19,9 +19,11 @@
 
 <view class="detail_over">
   <text style='color:#336699;font-size:15px;'>分享得积分，积分可以换取乐高模型颗粒！！</text>
-  <van-icon class='share_icon' size='20px' name="share" color='#FF9900' />
+  <van-icon class='share_icon' size='20px' name="share" color='#FF9900' bindtap='sharePage' />
 </view>
 
 
 <view class="adv">
 </view>
+
+<van-dialog id="van-dialog" />

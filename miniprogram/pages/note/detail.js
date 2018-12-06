@@ -2,6 +2,8 @@ const db = wx.cloud.database()
 const app = getApp()
 var getOI = require("../../utils/getOpenid.js")
 var util = require('../../utils/util.js')
+import Dialog from '../../dist/dialog/dialog';
+
 
 Page({
   /**
@@ -65,6 +67,11 @@ Page({
   _getRelation: function () {
     var that = this
     return new Promise(function (resolve, reject) {
+      //格式化addtime
+      that.setData({
+        "detail.addtime": util.formatTime(new Date(that.data.detail.addtime), 2)
+      })
+
       //查询学生姓名
       db.collection("student").where({
         _id: that.data.detail.student_id
@@ -128,6 +135,23 @@ Page({
         })
       }
     })
+  },
+
+
+  //跳转分享页面，当分享成功之后，再跳转回该页面
+  sharePage:function(){
+    var that = this 
+
+    Dialog.alert({
+      title: '生成图片分享',
+      message: '分享图片将保存在您的相册中，请在朋友圈分享，谢谢！'
+    }).then(() => {
+      wx.navigateTo({
+        url: '../page_share/index?id=' + that.data.detail._id,
+      })
+    });
+
+
   },
 
 

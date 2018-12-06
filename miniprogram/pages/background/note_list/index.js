@@ -33,8 +33,18 @@ Page({
     })
 
     //初始化数据
+    that.initData()
+  },
+
+  //初始化数据
+  initData:function(){
+    var that = this
+    // that.setData({
+    //   teachers: [],
+    //   list: []
+    // })
     var p = that._getAllTeacher();
-    p.then(function(){
+    p.then(function () {
       var q = that._getNote()
       q.then(function () {
         that._getNoteRelation()
@@ -207,6 +217,47 @@ Page({
     })
   },
 
+  //发布按钮
+  publishNote: function (event){
+    var that = this
+    var index = event.currentTarget.dataset.index
+    var id = event.currentTarget.dataset.id
+
+    db.collection("course_note").doc(id).update({
+      data:{
+        status:1
+      }
+    }).then(res=>{
+      var s = "list["+index+"].status"
+      //这里就算是更新页面了
+      that.setData({
+        [s]:1
+      })
+      console.log("发布成功")
+    })
+
+  },
+
+  //下线笔记
+  downNote:function(event){
+    var that = this
+    var index = event.currentTarget.dataset.index
+    var id = event.currentTarget.dataset.id
+    db.collection("course_note").doc(id).update({
+      data: {
+        status: 0
+      }
+    }).then(res => {
+      var s = "list[" + index + "].status"
+      //这里就算是更新页面了
+      that.setData({
+        [s]: 0
+      })
+      console.log("下线成功")
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -219,6 +270,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //this.initData()
   },
 
  
@@ -242,7 +294,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    //this.initData()
   },
 
   /**

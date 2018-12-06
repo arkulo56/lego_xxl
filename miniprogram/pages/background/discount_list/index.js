@@ -6,8 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tmpImg:"cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/750-437.jpg",
-    list:[],
+    list:[]
   },
 
   /**
@@ -16,18 +15,72 @@ Page({
   onLoad: function (options) {
     var that = this
     var p = that._getListData()
+    p.then(function(){
+      console.log(that.data.list)
+    })
   },
 
   //读取列表数据
   _getListData:function(){
     var that = this
     return new Promise(function(resolve,reject){
-      db.collection("discount").get().then(res=>{
+      db.collection("discount")
+      .orderBy("addtime","desc")
+      .get().then(res=>{
         that.setData({
           list:res.data
         })
         resolve("ok")
       })
+    })
+  },
+
+  //修改跳转
+  editDiscount:function(event){
+    wx.navigateTo({
+      url: '../discount_add/index?_id=' + event.currentTarget.dataset.id,
+    })
+  },
+  //预览跳转
+  previewDiscount:function(event){
+    wx.navigateTo({
+      url: '../discount_detail/index?_id=' + event.currentTarget.dataset.id,
+    })    
+  },
+  //下线事件
+  downLine:function(event){
+    var that = this
+    db.collection("discount").doc(event.currentTarget.dataset.id).update({
+      data: {
+        status: 0
+      }
+    }).then(res => {
+      that.setData({
+        list: []
+      })
+      that._getListData()
+    })
+  },
+
+  //上线事件
+  upLine:function(event){
+    var that = this
+    db.collection("discount").doc(event.currentTarget.dataset.id).update({
+      data:{
+        status:1
+      }
+    }).then(res=>{
+      that.setData({
+        list:[]
+      })
+      that._getListData()
+    })
+  },
+
+  //添加跳转
+  addJump:function(){
+    wx.navigateTo({
+      url: '../discount_add/index',
     })
   },
 
@@ -43,7 +96,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    that.setData({
+      list: []
+    })
+    that._getListData()
   },
 
   /**

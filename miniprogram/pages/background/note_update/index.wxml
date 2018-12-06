@@ -54,7 +54,7 @@
 <view class='note_content'>
   <text>内容:</text>
   <view class='line'></view>
-  <textarea class='note_content_detail' name="note_content" value="{{detail.note_content}}">
+  <textarea maxlength='-1' class='note_content_detail' name="note_content" value="{{detail.note_content}}">
   </textarea>
 </view>
 

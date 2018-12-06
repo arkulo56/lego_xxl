@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    discount_id:0
+    discount_id:0,
+    detail:""
   },
 
   /**
@@ -19,6 +20,7 @@ Page({
       that.setData({
         discount_id:options._id
       })
+      that._getDiscountData()
     }
   },
   //表单提交事件
@@ -42,10 +44,14 @@ Page({
         cover_photo:e.cover_photo,
         content:e.content,
         order_number: parseInt(e.order_number),
-        addtime:db.serverDate()
+        addtime:db.serverDate(),
+        status:0
       }
     }).then(res=>{
       console.log("添加成功")
+      wx.navigateBack({
+        delta:1
+      })
     })
   },
   //修改成功
@@ -57,15 +63,29 @@ Page({
         cover_photo: e.cover_photo,
         content: e.content,
         order_number: parseInt(e.order_number),
-        addtime: db.serverDate()
+        addtime: db.serverDate(),
+        status:0
       }
     }).then(res => {
       console.log("修改成功")
+      wx.navigateBack({
+        delta: 1
+      })
     })
   },
 
 
-
+  //读取数据,如果是修改，需要先把数据读取出来
+  _getDiscountData:function(){
+    var that = this
+    db.collection("discount").where({
+      _id:that.data.discount_id
+    }).get().then(res=>{
+      that.setData({
+        detail:res.data[0]
+      })
+    })
+  },
 
 
 

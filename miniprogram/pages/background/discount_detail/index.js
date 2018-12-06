@@ -1,3 +1,5 @@
+const db = wx.cloud.database()
+var util = require('../../../utils/util.js')
 
 Page({
 
@@ -5,32 +7,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tmpImg:"cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/750-437.jpg",
+    discount_id:0,
+    detail:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取当前用户的缓存，判定是否为内部教师
-    wx.getStorage({
-      key: 'admin',
-      success: function(res) {
-        //console.log(res)      
-      },
-      fail:function(res)
-      {
-          //关闭的时候跳转至首页
-          wx.navigateBack({
-            delta:1
-          })
-      }
+    var that = this
+    that.setData({
+      discount_id:options._id
     })
 
-
+    var p = that._getDiscountData()
   },
 
-
+  //获取促销活动信息
+  _getDiscountData:function(){
+    var that = this
+    return new Promise(function(resolve,reject){
+      db.collection("discount").doc(that.data.discount_id).get().then(res=>{
+        // console.log(res)
+        res.data.addtime = util.formatTime(new Date(res.data.addtime),2)
+        that.setData({
+          detail:res.data
+        })
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

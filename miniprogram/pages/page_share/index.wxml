@@ -1,0 +1,7 @@
+<view class='wait_icon' style='height:{{wait_height}}'>
+  <icon class='icon' type='{{wait_icon_type}}' size="40" />
+  <text class='watin_content'>{{wait_content}}</text>
+</view>
+<canvas canvas-id="shareCanvas" style="width:{{c_width}}px;height:{{c_height}}px"></canvas>
+
+

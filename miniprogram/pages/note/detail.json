@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "wemark": "../../wemark/wemark",
-    "van-icon": "../../dist/icon/index"
+    "van-icon": "../../dist/icon/index",
+    "van-dialog": "../../dist/dialog/index"
   }
 }

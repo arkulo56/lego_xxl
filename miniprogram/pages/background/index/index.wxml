@@ -1,9 +1,20 @@
 <view class='bk_enter'>
-  <navigator url='../note_list/index' class='nag'>教学笔记</navigator>
-  <navigator url='' class='nag'>学员管理</navigator>
-  <navigator url='' class='nag'>机构管理</navigator>
-  <navigator url='' class='nag'>教师管理</navigator>
+  <view class='content'>
+    <navigator url='../note_list/index' class='nag'>教学笔记</navigator>
+    <navigator url='../discount_list/index' class='nag'>促销活动</navigator>
+  </view>
+  <view class='content'>
+    <text class='nag_tmp' bindtap='tishi'>机构管理</text>
+    <text class='nag_tmp' bindtap='tishi'>教师管理</text>
+  </view>
+  <view class='content'>
+    <text class='nag_tmp' bindtap='tishi'>学员管理</text>
+    <!-- <navigator url='' class='nag'>...</navigator> -->
+    <text class='nag_tmp' bindtap='tishi'>...</text>
+  </view>
+</view>
+<view class='footer'>
+  <text>注：灰色模块暂未开通</text>
 </view>
 
 
-<van-dialog id="van-dialog" />

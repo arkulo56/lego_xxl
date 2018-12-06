@@ -64,6 +64,9 @@ Page({
       }
     ).then(res=>{
       //console.log(res)
+      wx.navigateBack({
+        delta:1
+      })
     })
   
   },

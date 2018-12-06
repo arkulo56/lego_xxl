@@ -11,7 +11,12 @@
     "pages/background/note_update/index",
     "pages/background/note_delete/index",
     "pages/background/discount_add/index",
-    "pages/background/discount_list/index"
+    "pages/background/discount_list/index",
+    "pages/background/discount_detail/index",
+    "pages/page_share/index",
+    "pages/qrcode_demo/index",
+    "pages/notice/index",
+    "pages/user_home/index"
   ],
   "window": {
     "backgroundColor": "#e9eaec",
@@ -25,10 +30,10 @@
       "pagePath": "pages/index/index",
       "text": "首页"
     },{
-      "pagePath": "pages/index/index",
+      "pagePath": "pages/notice/index",
       "text": "通知"
     },{
-      "pagePath": "pages/index/index",
+      "pagePath": "pages/user_home/index",
       "text": "我的"    
     }]
   }

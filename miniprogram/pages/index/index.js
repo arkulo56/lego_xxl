@@ -22,7 +22,8 @@ Page({
     //列表相关数据变量
     imgtmp: "cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/4.jpg",
     list: [],
-    pageLimit:5
+    pageLimit:5,
+    adv_list:[]
   },
 
   /**
@@ -30,6 +31,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    that._getAdvList()
     //获取用户openID
     var q = that._getOpenId()
     q.then(function(){
@@ -44,12 +46,42 @@ Page({
     })
   },
 
+  /**
+   * 广告数据查询
+   */
+  _getAdvList:function(){
+    var that = this
+    return new Promise(function(resolve,reject){
+      db.collection("discount")
+      .field({
+        _id:true,
+        cover_photo:true
+      })
+      .where({
+        status:1
+      })
+      .orderBy("order_number","desc")
+      .get().then(res=>{
+        console.log("广告列表：",res.data)
+        that.setData({
+          adv_list:res.data
+        })
+        resolve("ok")
+      })
+    })
 
+  },
+
+
+
+  //获取笔记列表数据
   _getNote: function () {
     var that = this
     return new Promise(function (resolve, reject) {
 
-      db.collection("course_note")
+      db.collection("course_note").where({
+        status:1
+      })
         .limit(that.data.pageLimit)
         .orderBy("addtime", "desc")
         .get().then(res => {
@@ -156,7 +188,13 @@ Page({
     })
   },
 
-
+  //广告跳转
+  advJump:function(event){
+    console.log(event)
+    wx.navigateTo({
+      url: "../background/discount_detail/index?_id=" + event.currentTarget.dataset.id,
+    })
+  },
 
 
   //后台跳转函数
@@ -193,6 +231,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.onLoad()
   },
 
   /**

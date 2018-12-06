@@ -30,7 +30,7 @@ Page({
     return new Promise(function(resolve,reject){
       db.collection("course_note").doc(that.data.note_id).remove().then(res=>{
         console.log("删除成功")
-        Toast.success('成功文案');
+        Toast.success('删除成功');
         setTimeout(function(){
           wx.navigateBack({
             delta: 1

@@ -81,6 +81,7 @@ Page({
     })
   },
 
+  //查询所有笔记
   _getNote: function () {
     var that = this
     return new Promise(function (resolve, reject) {
@@ -89,7 +90,8 @@ Page({
       var offset = (that.data.loadMore.currentPage == 0) ? 0 : (that.data.loadMore.currentPage * that.data.loadMore.pageNum)
       db.collection("course_note")
         .where({
-          teacher_id: that.data.teachers[that.data.t_index]._id
+          teacher_id: that.data.teachers[that.data.t_index]._id,
+          status:1
         })
         .limit(that.data.loadMore.pageNum)
         .orderBy("addtime", "desc")
@@ -201,6 +203,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //this.onLoad()
   },
 
 
