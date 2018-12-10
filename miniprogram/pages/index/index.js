@@ -31,16 +31,21 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    that._getAdvList()
-    //获取用户openID
-    var q = that._getOpenId()
-    q.then(function(){
+    //获取广告数据
+    var adv = that._getAdvList()
+    adv.then(function(){
 
-      //初始化数据
-      var p = that._getNote()
-      p.then(function () {
-          console.log("列表数据：",that.data.list)
-          that._getNoteRelation()
+      //获取用户openID
+      var q = that._getOpenId()
+      q.then(function(){
+
+        //初始化数据
+        var p = that._getNote()
+        p.then(function () {
+            console.log("列表数据：",that.data.list)
+            that._getNoteRelation()
+        })
+
       })
 
     })

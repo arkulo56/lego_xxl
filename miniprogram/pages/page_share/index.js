@@ -19,7 +19,7 @@ Page({
     wait_content:"请稍后，正在生成分享图片...",
     c_width:0,          //窗口屏幕宽度
     c_height:0,         //窗口屏幕高度
-    imgTim:"cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/share_backgound_img.jpg",  //背景图片
+    imgTim:"cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/share_background_2.jpg",  //背景图片
     cover_img:"",  //封面图片
     backImagePath:"",     //背景图片本地地址
     cover_img_path:"",    //封面图片本地地址
@@ -204,11 +204,11 @@ Page({
 
       //设置课程主副标题
       ctx.setTextAlign('center')    // 文字居中
-      ctx.setFillStyle('#436EEE')  // 文字颜色：黑色
+      ctx.setFillStyle('#193559')  // 文字颜色：黑色
       ctx.setFontSize(22)         // 文字字号：22px
       ctx.fillText("想象力&机器人专业课", (that.data.c_width / 2), (that.data.c_height*0.19))
 
-      ctx.setFillStyle('#FFB90F')  // 文字颜色：黑色
+      ctx.setFillStyle('#e18d39')  // 文字颜色：黑色
       ctx.setFontSize(30)         // 文字字号：22px
       ctx.fillText(that.data.note_detail.course_title, (that.data.c_width / 2), (that.data.c_height * 0.26))
       ctx.stroke()

@@ -39,7 +39,7 @@
 				{
 					"id": 1,
 					"name": "编辑当前页",
-					"pathName": "pages/background/discount_list/index",
+					"pathName": "pages/note_list/index",
 					"query": ""
 				},
 				{
