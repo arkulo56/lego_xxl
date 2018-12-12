@@ -46,7 +46,7 @@
 .img_detail
 {
   width: 150rpx;
-  height: 225rpx;
+  height: 266rpx;
 }
 
 /*中间部分*/
@@ -73,7 +73,7 @@
   /*background-color:aqua;*/
   display: flex;
   flex-grow: 2;
-  flex-direction: row;
+  flex-direction: row-reverse;
   align-items: flex-end;
   padding-bottom: 2px;
   width: 100%

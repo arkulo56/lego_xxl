@@ -9,7 +9,7 @@
   <text class='note_addtime_value'>{{detail.addtime}}</text>
   <view class='note_reading'>
     <van-icon name="password-view" color='#FF9900' />
-    <text class='note_reading_value'>阅读量：<text style='color:#6699CC'>{{detail.reading_account}}</text></text>
+    <text class='note_reading_value'>阅读量：<text style='color:#6699CC'>{{visiter_number}}</text></text>
   </view>
 </view>
 

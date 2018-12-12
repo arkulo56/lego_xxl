@@ -9,7 +9,8 @@ Page({
    */
   data: {
     detail:"",
-    note_id:""
+    note_id: "",
+    visiter_number: 0
   },
 
   /**
@@ -34,19 +35,19 @@ Page({
     })
 
     //判断一下这个用户是否已经来过了
-    //console.log("人言：", app.globalData.openid)
-    if (typeof(app.globalData.openid) =="undefined")
-    {
-      //console.log("没有查到该数据")
-      var p =  getOI.getOpenid()
-      p.then(function(){
-        //console.log(app.globalData)
-        that._visiter()
-      })
-    }else
-    {
-      that._visiter()
-    }
+    // //console.log("人言：", app.globalData.openid)
+    // if (typeof(app.globalData.openid) =="undefined")
+    // {
+    //   //console.log("没有查到该数据")
+    //   var p =  getOI.getOpenid()
+    //   p.then(function(){
+    //     //console.log(app.globalData)
+    //     that._visiter()
+    //   })
+    // }else
+    // {
+    //   that._visiter()
+    // }
 
   },
 
@@ -60,7 +61,17 @@ Page({
         that.setData({
           detail: res.data[0]
         })
-        resolve("ok")
+
+        //在这里读取note_visiter表中该笔记的访问量
+        db.collection("note_visiter").where({
+          note_id: that.data.note_id
+        }).get().then(res_v => {
+          that.setData({
+            visiter_number: res_v.data.length
+          })
+          resolve("ok")
+        })
+
       })
     })
   },
@@ -104,27 +115,27 @@ Page({
    * 1. 先查询访客是否已经访问过
    * 2. 如果没有访问过，则插入访问记录
    */
-  _visiter:function(){
-    var that = this
-    db.collection("note_visiter").where({
-      openid: app.globalData.openid,
-      note_id:that.data.note_id
-    }).get().then(res=>{
-      console.log("查询房客：",res.data)
-      if(res.data.length==0)
-      {
-        db.collection("note_visiter").add({
-          data:{
-            note_id:that.data.note_id,
-            openid: app.globalData.openid,
-            visit_time: util.formatTime(new Date(), 3)
-          }
-        }).then(res=>{
-          console.log("访客记录添加成功")
-        })
-      }
-    })
-  },  
+  // _visiter:function(){
+  //   var that = this
+  //   db.collection("note_visiter").where({
+  //     openid: app.globalData.openid,
+  //     note_id:that.data.note_id
+  //   }).get().then(res=>{
+  //     console.log("查询房客：",res.data)
+  //     if(res.data.length==0)
+  //     {
+  //       db.collection("note_visiter").add({
+  //         data:{
+  //           note_id:that.data.note_id,
+  //           openid: app.globalData.openid,
+  //           visit_time: util.formatTime(new Date(), 3)
+  //         }
+  //       }).then(res=>{
+  //         console.log("访客记录添加成功")
+  //       })
+  //     }
+  //   })
+  // },  
 
 
   /**

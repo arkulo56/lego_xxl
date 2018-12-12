@@ -11,7 +11,8 @@ Page({
    */
   data: {
     detail: "",
-    note_id: ""
+    note_id: "",
+    visiter_number:0
   },
 
   /**
@@ -19,7 +20,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    console.log("哈哈：", options)
+    //console.log("哈哈：", options)
     if (!options._id) {
       console.log("没有拿到主键入參")
     }
@@ -31,21 +32,24 @@ Page({
     //读取笔记数据
     var p = that._getNote()
     p.then(function () {
-      that._getRelation()
+      //获取关联数据
+      var w = that._getRelation()
+      w.then(function(){
+
+        //判断一下这个用户是否已经来过了
+        if (typeof (app.globalData.openid) == "undefined") {
+          var q = getOI.getOpenid()
+          q.then(function () {
+            that._visiter()
+          })
+        } else {
+          that._visiter()
+        }
+
+      })
     })
 
-    //判断一下这个用户是否已经来过了
-    //console.log("人言：", app.globalData.openid)
-    if (typeof (app.globalData.openid) == "undefined") {
-      //console.log("没有查到该数据")
-      var p = getOI.getOpenid()
-      p.then(function () {
-        //console.log(app.globalData)
-        that._visiter()
-      })
-    } else {
-      that._visiter()
-    }
+
 
   },
 
@@ -59,7 +63,17 @@ Page({
         that.setData({
           detail: res.data[0]
         })
-        resolve("ok")
+
+        //在这里读取note_visiter表中该笔记的访问量
+        db.collection("note_visiter").where({
+          note_id:that.data.note_id
+        }).get().then(res_v=>{
+          that.setData({
+            visiter_number:res_v.data.length
+          })
+          resolve("ok")
+        })
+        
       })
     })
   },
@@ -99,6 +113,7 @@ Page({
         that.setData({
           [xiabiao]: res.data[0].name
         })
+        resolve("ok");
       })
     })
   },
@@ -110,6 +125,8 @@ Page({
    */
   _visiter: function () {
     var that = this
+    console.log("之前的访问量：", that.data.detail.reading_account)
+    //console.log("我自己的openid：",app.globalData.openid)
     db.collection("note_visiter").where({
       openid: app.globalData.openid,
       note_id: that.data.note_id
@@ -124,12 +141,15 @@ Page({
           }
         }).then(res => {
           
-          db.collection("course_note").doc(that.data.note_id).update({
-            data:{
-              reading_account: that.data.detail.reading_account + 1
-            }
-          }).then(res=>{
-            console.log("访客记录添加成功")
+          var number_t = parseInt(that.data.detail.reading_account) + parseInt(1)
+          /**
+           * 因为笔记详情是有管理员创建，普通用户没有修改权限，所以无法实现访问量字段更新
+           * 解决办法是
+           * 1. 在详情页去note_visiter表中查询该笔记的访问量，可能会获取到多条记录
+           * 2. 在列表页中不再显示访问量
+           */
+          that.setData({
+            visiter_number:number_t
           })
 
         })

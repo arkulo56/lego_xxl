@@ -20,9 +20,9 @@
     <view class='content_teacher'>教师：{{item.teacher_name}} / 学员：{{item.student_name}}  </view>
     <view class='item-button'>
       <view class='content_status'>发布时间：{{item.addtime}}</view>
-      <view class='option'>
+      <!-- <view class='option'>
         <text>阅读量:{{item.reading_account}}</text>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>
