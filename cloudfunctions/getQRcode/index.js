@@ -50,7 +50,7 @@ exports.main = async (event, context) => {
       data: {
         page: event.page,
         width: 300,
-        scene: "id=" + event.id,
+        scene: event.id,
       },
     });
 

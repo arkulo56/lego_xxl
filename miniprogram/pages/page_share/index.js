@@ -119,7 +119,9 @@ Page({
         name: "getQRcode",
         data: {
           moduleKey: "note_detail",
-          params: that.data.note_id
+          params: that.data.note_id,
+          page:"pages/note/detail",
+          id:that.data.note_id
         },
         success: res => {
           //console.log(res)

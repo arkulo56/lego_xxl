@@ -20,14 +20,34 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+
     //console.log("哈哈：", options)
     if (!options._id) {
       console.log("没有拿到主键入參")
+
+      //判断是不是扫分享码来的
+      if(!options.scene)
+      {
+        console.log("也没有scene参数")
+        wx.navigateTo({
+          url: '../index/index'
+        })
+      }else{
+        var id = decodeURIComponent(options.scene)
+        console.log("scene的值：", id)
+        //获取文章主键
+        that.setData({
+          note_id: id
+        })       
+      }
+    }else{
+      //获取文章主键
+      that.setData({
+        note_id: options._id
+      })
     }
-    //获取文章主键
-    that.setData({
-      note_id: options._id
-    })
+
+
 
     //读取笔记数据
     var p = that._getNote()

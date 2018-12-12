@@ -190,6 +190,12 @@ Page({
     wx.navigateTo({
       url: '../note/detail?_id=' + event.currentTarget.dataset.id,
     })
+
+    // var p = "XA4Nud7E7L4wjqUY"
+    // wx.navigateTo({
+    //   url: '../note/detail?scene='+p,
+    // })
+
   },
 
   /**
