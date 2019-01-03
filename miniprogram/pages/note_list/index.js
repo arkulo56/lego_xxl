@@ -35,12 +35,13 @@ Page({
 
     //初始化数据
     var p = that._getAllTeacher();
-    p.then(function () {
-      var q = that._getNote()
-      q.then(function () {
-        that._getNoteRelation()
-      })
+    // p.then(function () {
+    // })
+    var q = that._getNote()
+    q.then(function () {
+      that._getNoteRelation()
     })
+
   },
 
 
@@ -86,11 +87,20 @@ Page({
     var that = this
     return new Promise(function (resolve, reject) {
 
+      var teacher_index = ""
+      if(that.data.t_index==0)
+      {
+        teacher_index = "W-TfbKu9e31Z7LAh" 
+      }else
+      {
+        teacher_index = that.data.teachers[that.data.t_index]._id
+      }
+
       //偏移量
       var offset = (that.data.loadMore.currentPage == 0) ? 0 : (that.data.loadMore.currentPage * that.data.loadMore.pageNum)
       db.collection("course_note")
         .where({
-          teacher_id: that.data.teachers[that.data.t_index]._id,
+          teacher_id: teacher_index,
           status:1
         })
         .limit(that.data.loadMore.pageNum)

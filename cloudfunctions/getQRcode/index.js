@@ -13,6 +13,8 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 //初始化数据库
 const db = cloud.database()
+//基准时间
+const start_time = new Date().getTime();
 
 
 var appId = "wxab201c3be12abbd9";
@@ -32,13 +34,17 @@ exports.main = async (event, context) => {
   {
     return res.data[0].img_path
   }
+
+  console.log("查询二维码是否已经存在结束:", new Date().getTime() - start_time)
   
   try {
     //获取token
     var url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+appId+"&secret="+appSecret
     const resultValue = await rp(url)
     const token = JSON.parse(resultValue).access_token;
-    
+    console.log("获取token结束:", new Date().getTime() - start_time)
+
+
     //获取二维码流数据
     const response = await axios({
       method: 'post',
@@ -53,13 +59,17 @@ exports.main = async (event, context) => {
         scene: event.id,
       },
     });
+    console.log("获取二维码流数据结束:", new Date().getTime() - start_time)
+
 
     //上传图片
     const upload_res = await cloud.uploadFile({
       cloudPath: 'xcxcodeimages/' + Date.now() + '.png',
       fileContent: response.data,
     });
-    //console.log(response)
+    console.log("图片上传至云存储结束:", new Date().getTime() - start_time)
+    
+    
     //保存数据库
     await db.collection("qrcode").add({
       data:{
@@ -68,6 +78,8 @@ exports.main = async (event, context) => {
         img_path:upload_res.fileID
       }
     })
+
+    console.log("保存数据库结束:", new Date().getTime() - start_time)
 
     return upload_res.fileID
 

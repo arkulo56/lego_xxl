@@ -13,24 +13,15 @@ Page({
    */
   onLoad: function (options) {
 
-    wx.cloud.init({
-      env: 'logo-xxl'
-    })
+    let start = new Date().getTime();
+      console.log(start)
 
-    wx.cloud.callFunction({
-      name:"getQRcode",
-      data:{
-        moduleKey:"note_detail",
-        params:1
-      },
-      success:res=>{
-        console.log(res)
-      },
-      fail:error=>{
-        console.log(error)
-      }
 
-    })
+      setTimeout(function(){
+        console.log(new Date().getTime()-start_time)
+      },3000)
+
+
   },
 
   /**

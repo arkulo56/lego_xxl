@@ -56,23 +56,31 @@ Page({
         //console.log(res)
       },
     })
+    
+    console.log("获取手机窗口结束")
 
     //获取笔记详情页的小程序码
     var Qr_res = that._getQrCode()
     Qr_res.then(function(){
+      console.log("获取二维码结束")
       //获取笔记相关数据
       var data_res = that._getNoteData(that.data.note_id)
       data_res.then(function(){
+        console.log("获取笔记数据结束")
         //console.log(that.data.cover_img)
         //生成图片过程
         var a = that.getImageToLocal(0)
         a.then(function(){//网络图片取回来
+          console.log("获取网络图片1结束")
           var a1 = that.getImageToLocal(1)
           a1.then(function(){
+            console.log("获取网络图片2结束")
             var b = that.drawContent()
             b.then(function () {//绘图成功
+              console.log("绘制图形结束")
               var p = that.toTmpFile()
               p.then(function () {//临时图片生成成功
+                console.log("生成临时图片结束")
                 that.saveImageToLocal()
               })
             })
@@ -98,7 +106,7 @@ Page({
         db.collection("course").where({
           _id:res.data[0].course_id
         }).get().then(res_course=>{
-          console.log(res)
+          //console.log(res)
           var d = res.data[0]
           d.course_title = res_course.data[0].title
           that.setData({
@@ -236,14 +244,14 @@ Page({
       wx.canvasToTempFilePath({
         canvasId: 'shareCanvas',
         success(res){
-          console.log("临时图片路径：",res.tempFilePath)
+          //console.log("临时图片路径：",res.tempFilePath)
           that.setData({
             tmpPath: res.tempFilePath
           })
           resolve("ok")
         },
         fail(e){
-          console.log(e)
+          //console.log(e)
         }
       }, this)
     
