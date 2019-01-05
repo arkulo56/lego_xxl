@@ -1,1 +1,8 @@
 page{background-color: #e9eaec;}
+
+
+pages {
+  position: relative;
+  z-index: 9999998;
+  background: #fff;
+}

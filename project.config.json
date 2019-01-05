@@ -39,7 +39,7 @@
 				{
 					"id": 1,
 					"name": "编辑当前页",
-					"pathName": "pages/qrcode_demo/index",
+					"pathName": "pages/note2/detail",
 					"query": ""
 				},
 				{

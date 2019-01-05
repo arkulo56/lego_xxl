@@ -1,0 +1,14 @@
+<view class="navbar" style='height:46px'>
+  <view class="navbar-icon">
+    <image class='img-home' src='../../imgs/back-home.png'></image>
+  </view>  
+  <view class='img-jian'>  </view>
+  <view class="tofriend">
+    <text class='title'>分享给好友</text>
+  </view>
+  <view class='img-jian'>  </view>
+  <view class='toquan'>
+    <text class='title'>朋友圈海报</text>
+  </view>
+
+</view>
