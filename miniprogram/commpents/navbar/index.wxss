@@ -12,7 +12,6 @@
   z-index: 111;
 
 }
-
 .navbar-icon
 {
   display: flex;
@@ -20,6 +19,14 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+}
+.index_button
+{
+  background:none;
+}
+
+.index_button::after{
+  border: none;
 }
 
 .tofriend

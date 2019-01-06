@@ -2,8 +2,6 @@
 App({
   globalData:{
     openid:"",
-    share:false,  //默认关闭分享
-    height:0  //头部导航栏高度
   },
   onLaunch: function (options) {
     //开启用户追踪，获取用户信息
@@ -16,17 +14,5 @@ App({
     }
     this.globalData = {}
 
-    // 判断是否由分享进入小程序
-    if (options.scene == 1007 || options.scene == 1008) {
-      this.globalData.share = true
-    } else {
-      this.globalData.share = false
-    };
-
-    wx.getSystemInfo({
-      success: (res) => {
-        this.globalData.height = res.statusBarHeight
-      }
-    })
   }
 })

@@ -1,8 +1,34 @@
+<!-- 底部分享导航 -->
+<navbar navbar-data='{{nvabarData}}'></navbar>
 
-<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<text class="note_title">{{detail.note_title}}</text>
 
-<view class='home-page' style='margin-top: {{height}}px'>
-  home page
+<view class='note_author'>
+  <text>作者：</text>
+  <text class="note_author_value">{{detail.teacher_name}}</text>
 </view>
+<view class='note_addtime'>
+  <text>日期：</text>
+  <text class='note_addtime_value'>{{detail.addtime}}</text>
+  <view class='note_reading'>
+    <van-icon name="password-view" color='#FF9900' />
+    <text class='note_reading_value'>阅读量：<text style='color:#6699CC'>{{visiter_number}}</text></text>
+  </view>
+</view>
+
+<view class='note_detail'>
+  <wemark md="{{detail.note_content}}" link highlight type="wemark"></wemark>
+</view>
+
+<!-- <view class="detail_over">
+  <text style='color:#336699;font-size:15px;'>分享得积分，积分可以换取乐高模型颗粒！！</text>
+  <van-icon class='share_icon' size='20px' name="share" color='#FF9900' bindtap='sharePage' />
+</view> -->
+
+
+<view class="adv">
+</view>
+
+<van-dialog id="van-dialog" />
 
   

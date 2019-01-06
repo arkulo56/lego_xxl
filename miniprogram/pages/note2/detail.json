@@ -1,5 +1,8 @@
 {
     "usingComponents": {
-      "nav-bar": "../../commpents/navbar/index"
+      "navbar": "../../commpents/navbar/index",
+      "wemark": "../../wemark/wemark",
+      "van-icon": "../../dist/icon/index",
+      "van-dialog": "../../dist/dialog/index"
     }
 }
