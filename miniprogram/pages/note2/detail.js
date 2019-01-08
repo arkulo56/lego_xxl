@@ -189,8 +189,14 @@ Page({
         url: '../page_share/index?id=' + that.data.detail._id,
       })
     });
+  },
 
-
+  //广告跳转
+  advJump: function (event) {
+    console.log(event)
+    wx.navigateTo({
+      url: "../background/discount_detail/index?_id=" + event.currentTarget.dataset.id,
+    })
   },
 
 

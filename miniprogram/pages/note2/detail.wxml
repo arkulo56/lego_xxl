@@ -16,6 +16,10 @@
   </view>
 </view>
 
+<!-- 这是头部广告位，硬编的直接跳转答疑解惑那篇文章，文章_id：XBtc-cDR1TiN-V-U -->
+<image src='cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/详情页宣传广告.jpg' mode='widthFix' style='width:100%;' bindtap='advJump' data-id='XBtc-cDR1TiN-V-U'></image>
+
+
 <view class='note_detail'>
   <wemark md="{{detail.note_content}}" link highlight type="wemark"></wemark>
 </view>
