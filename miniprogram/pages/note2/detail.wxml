@@ -24,13 +24,12 @@
   <wemark md="{{detail.note_content}}" link highlight type="wemark"></wemark>
 </view>
 
-<!-- <view class="detail_over">
-  <text style='color:#336699;font-size:15px;'>分享得积分，积分可以换取乐高模型颗粒！！</text>
-  <van-icon class='share_icon' size='20px' name="share" color='#FF9900' bindtap='sharePage' />
-</view> -->
+
 
 
 <view class="adv">
+  <image src='cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/分享得积分.jpg' mode='widthFix' style='width:100%'></image>
+  <view style='height:50px;'>   </view>
 </view>
 
 <van-dialog id="van-dialog" />

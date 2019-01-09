@@ -73,5 +73,7 @@
   flex-direction: row;
   justify-content: center;
   background-color: #fffef9;
+  /* 因为底部有分享导航，因此这里需要给底部预留出70px */
+  padding-bottom: 70px;   
   /* padding: 0 0 50px 0; */
 }
