@@ -1,5 +1,5 @@
 <!-- 底部分享导航 -->
-<navbar navbar-data='{{nvabarData}}'></navbar>
+<navbar from-page="pages/note2/detail" page-id="{{detail._id}}"  ></navbar>
 
 <text class="note_title">{{detail.note_title}}</text>
 
