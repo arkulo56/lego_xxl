@@ -18,7 +18,11 @@ Page({
       currentPage: 0,
       pageNum: 6
     },
-    sc_height: 0
+    sc_height: 0,
+    //筛选状态
+    status_arr:['未发布','已发布'],
+    status_index:0,
+    status_value:0
   },
 
   /**
@@ -72,6 +76,26 @@ Page({
       that._getNoteRelation()
     })
   },
+  /**
+   * 列表筛选条件：状态筛选
+   * 1. 先把得到的状态值付给全局变量，读取笔记列表时可作为条件
+   * 2. 调用函数重新获取内容
+   */
+  bindPickerStatus:function(e){
+    var that = this;
+    that.setData({
+      status_value:e.detail.value,
+      "loadMore.currentPage": 0,
+      "loadMore.hasMore": true,
+      status_index:e.detail.value
+    })
+    //重新加载页面
+    var q = that._getNote()
+    q.then(function () {
+      that._getNoteRelation()
+    })
+  },
+
 
   //查询所有教师数据
   _getAllTeacher: function (){
@@ -105,13 +129,15 @@ Page({
     var offset = (that.data.loadMore.currentPage == 0) ? 0 : (that.data.loadMore.currentPage * that.data.loadMore.pageNum)
     db.collection("course_note")
       .where({
-        teacher_id: that.data.teachers[that.data.t_index]._id
+        teacher_id: that.data.teachers[that.data.t_index]._id,
+        status: parseInt(that.data.status_value)
       })
       .limit(that.data.loadMore.pageNum)
-      .orderBy("addtime", "asc")
+      .orderBy("addtime", "desc")
       .skip(offset)
       .get().then(res => {
-        console.log("查询条件:老师主键", that.data.teachers[that.data.t_index]._id, "／偏移量", offset, "/取数量", that.data.loadMore.pageNum)
+        console.log(res)
+        console.log("查询条件:老师主键", that.data.teachers[that.data.t_index]._id, "／偏移量", offset, "/取数量", that.data.loadMore.pageNum,"/状态",that.data.status_value)
         console.log("查询到的笔记数据：",res.data)
         //如果当前页大于0，不是第一页，则数据是追加
         if (that.data.loadMore.currentPage > 0) {
@@ -234,6 +260,15 @@ Page({
         [s]:1
       })
       console.log("发布成功")
+
+      // /** 这部分暂时取消！！！！！！2018-02-19
+      //  * 这里需要把笔记的分享图片也一次性的给生成了，并且保存到数据库中，这样的好处
+      //  * 1. 在前台详情页分享朋友圈的时候，分享图片是已经存在的
+      //  * 2. 下面的page_share就是笔记数据的分享生成页面
+      //  */
+      // wx.navigateTo({
+      //   url: "../../page_share/index?id=" + id +"&downfile=0",
+      // })
     })
 
   },
@@ -254,6 +289,18 @@ Page({
         [s]: 0
       })
       console.log("下线成功")
+    })
+  },
+
+  /**
+   * 上传分享图片跳转页面
+   * 1. 本来设计的是系统自动生成分享图片，现在改成手动上传了
+   */
+  uploadShareImage:function(event){
+    var id = event.currentTarget.dataset.id
+    var title = event.currentTarget.dataset.title
+    wx.navigateTo({
+      url: "../uploadShareImage/index?id=" + id +"&title="+title,
     })
   },
 

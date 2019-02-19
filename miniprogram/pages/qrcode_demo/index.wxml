@@ -1,2 +1,15 @@
-<!--pages/qrcode_demo/index.wxml-->
-<text>pages/qrcode_demo/index.wxml</text>
+
+
+
+<canvas canvas-id="shareCanvas">
+
+2019猪事顺利
+2019猪事顺利
+2019猪事顺利
+2019猪事顺利
+2019猪事顺利
+2019猪事顺利
+
+
+
+</canvas>

@@ -43,7 +43,12 @@ Component({
       if (this.properties.fromPage && this.properties.pageId)
       {
         if (sharePages.hasOwnProperty(this.properties.fromPage)) {
-          targetUrl = sharePages[this.properties.fromPage] + "?id=" + this.properties.pageId
+          /**
+           * 1. sharePages记录的是多个分享页面地址，笔记和促销活动的分享页面应该不是一个
+           * 2. id是来源页面（笔记或促销活动）的主键
+           * 3. downfile来表达是否需要下载分享图片，当前功能是前台底部导航，因此需要下载分享图片
+           */
+          targetUrl = sharePages[this.properties.fromPage] + "?id=" + this.properties.pageId+"&downfile=1"
         } else {
           console.log("没有找到指定的分享页面")
         }

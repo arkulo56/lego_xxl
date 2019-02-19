@@ -3,9 +3,16 @@
   <view class='list-select'>
     <picker bindchange="bindPickerChange" value="{{t_index}}" range="{{teachers}}" range-key="{{'name'}}">
       <view class="picker">
-        教师：{{teachers[t_index].name}}
+        选择教师：<text class="select_content">{{teachers[t_index].name}}</text>
       </view>
     </picker>
+
+    <picker bindchange='bindPickerStatus' value="status_index" range="{{status_arr}}" range-key="{{}}">
+      <view class="picker">
+        选择状态：<text class="select_content">{{status_arr[status_index]}}</text>
+      </view>
+    </picker>
+
   </view>
   <view class='list-ison'><van-icon name="add-o" bindtap='add_note' /></view>
 </view>
@@ -23,6 +30,7 @@
     <view class='item-button'>
       <!-- <view class='content_status'>状态：{{item.status==0?"未发布":"已发布"}}</view> -->
       <view class='option'>
+        <button class='option_button' data-id="{{item._id}}" data-title="{{item.note_title}}" bindtap='uploadShareImage'>分享</button>
         <button class='option_button' data-id="{{item._id}}" bindtap='preViewOnclick'>预览</button>
         <button class='option_button' data-id="{{item._id}}" bindtap='updateOnclick'>修改</button>
         <button class='option_button' data-id="{{item._id}}" bindtap='deleteOnclick' wx:if="{{item.status==0}}">删除</button>

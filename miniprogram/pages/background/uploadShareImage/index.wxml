@@ -1,0 +1,14 @@
+<view class="header">
+  <text class='title'>晨阳&想象力－第五课－大机械－赵雨阳</text>
+</view>
+
+<view class='content'>
+  <image class='qrcode' mode='widthFix' src='cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/上传分享图片按钮素材.jpg'></image>
+  <image class='qrcode' mode='widthFix' src='cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/上传分享图片按钮素材1.jpg'></image>
+</view>
+
+<view class='line-in'></view>
+
+<view class='share_image'>
+  <image></image>
+</view>

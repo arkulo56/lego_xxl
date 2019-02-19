@@ -63,6 +63,7 @@ Page({
         cover_photo:true
       })
       .where({
+        is_show:1,
         status:1
       })
       .orderBy("order_number","desc")

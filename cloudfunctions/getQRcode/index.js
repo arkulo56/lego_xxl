@@ -3,6 +3,10 @@
  * 0. 先判断数据库（qrcode表）中是否已经存在该二维码，如果存在直接返回
  * 1. 因为是云开发模式，之前的用户鉴权是不需要获取token的，所以第一步是获取token
  * 2. 获得token之后，拿着token去获取小程序码
+ * 
+ * 2019-02-02
+ * 1. 将原来保存二维码至数据库部分去掉了，因为速度很慢
+ * 
  */
 
 //涉及到的相关框架
@@ -25,17 +29,17 @@ exports.main = async (event, context) => {
   //console.log(event)
   
   //查询数据库中是否存在这个页面的二维码
-  var res = await db.collection("qrcode").where({
-    moduleKey:event.moduleKey,
-    params:event.params
-  }).get()
+  // var res = await db.collection("qrcode").where({
+  //   moduleKey:event.moduleKey,
+  //   params:event.params
+  // }).get()
 
-  if (typeof (res.data[0]) !="undefined")
-  {
-    return res.data[0].img_path
-  }
+  // if (typeof (res.data[0]) !="undefined")
+  // {
+  //   return res.data[0].img_path
+  // }
 
-  console.log("查询二维码是否已经存在结束:", new Date().getTime() - start_time)
+  // console.log("查询二维码是否已经存在结束:", new Date().getTime() - start_time)
   
   try {
     //获取token
@@ -71,15 +75,15 @@ exports.main = async (event, context) => {
     
     
     //保存数据库
-    await db.collection("qrcode").add({
-      data:{
-        moduleKey:event.moduleKey,
-        params:event.params,
-        img_path:upload_res.fileID
-      }
-    })
+    // await db.collection("qrcode").add({
+    //   data:{
+    //     moduleKey:event.moduleKey,
+    //     params:event.params,
+    //     img_path:upload_res.fileID
+    //   }
+    // })
 
-    console.log("保存数据库结束:", new Date().getTime() - start_time)
+    // console.log("保存数据库结束:", new Date().getTime() - start_time)
 
     return upload_res.fileID
 

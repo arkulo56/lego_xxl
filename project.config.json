@@ -39,7 +39,7 @@
 				{
 					"id": 1,
 					"name": "编辑当前页",
-					"pathName": "pages/note2/detail",
+					"pathName": "pages/background/uploadShareImage/index",
 					"query": ""
 				},
 				{

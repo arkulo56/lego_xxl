@@ -45,7 +45,8 @@ Page({
         content:e.content,
         order_number: parseInt(e.order_number),
         addtime:db.serverDate(),
-        status:0
+        status:0,
+        is_show:parseInt(e.is_show)
       }
     }).then(res=>{
       console.log("添加成功")
@@ -64,7 +65,8 @@ Page({
         content: e.content,
         order_number: parseInt(e.order_number),
         addtime: db.serverDate(),
-        status:0
+        status: 0,
+        is_show: parseInt(e.is_show)
       }
     }).then(res => {
       console.log("修改成功")

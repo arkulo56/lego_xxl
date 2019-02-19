@@ -253,9 +253,8 @@ Page({
       console.log(ops.target)
     }
     return {
-      title: '晨阳&想象力-大机械-第五课-赵雨阳',
-      path: 'pages/index/index',
-      imageUrl: that.data.shareToFriendImg,
+      title: "《"+that.data.detail.course_name+"》笔记",
+      path: 'pages/note/detail?_id='+that.data.note_id
     }
   }
 

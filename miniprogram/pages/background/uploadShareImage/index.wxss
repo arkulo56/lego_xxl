@@ -1,0 +1,22 @@
+.header
+{
+  font-size: 20px;
+  color: darkslategray;
+  padding: 20px 15px;
+  font-weight: bold;
+}
+
+.content
+{
+  /* background-color: bisque; */
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  /* justify-content: flex-start; */
+}
+
+.qrcode{
+  /* background-color: azure; */
+  width: 100px;
+  padding-left: 15px;
+}

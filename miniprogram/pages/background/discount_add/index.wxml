@@ -6,6 +6,11 @@
 </view>
 
 <view class="header">
+  <view class='input-title'>首页显示：</view>
+  <view class='input-value'><input name="is_show" value='{{detail.is_show}}'></input></view>
+</view>
+
+<view class="header">
   <view class='input-title'>封面图片：</view>
   <view class='input-value'><input name="cover_photo" value='{{detail.cover_photo}}'></input></view>
 </view>

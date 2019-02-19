@@ -7,6 +7,7 @@
     "pages/note_list/index",
     "pages/background/note/add",
     "pages/background/note_list/index",
+    "pages/background/uploadShareImage/index",
     "pages/background/index/index",
     "pages/background/note_detail/index",
     "pages/background/note_update/index",
