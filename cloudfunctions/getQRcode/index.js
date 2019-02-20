@@ -86,7 +86,6 @@ exports.main = async (event, context) => {
     // console.log("保存数据库结束:", new Date().getTime() - start_time)
 
     return upload_res.fileID
-
   } catch (err) {
     console.log('>>>>>> ERROR:', err)
   }

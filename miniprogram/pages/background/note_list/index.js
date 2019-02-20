@@ -300,7 +300,7 @@ Page({
     var id = event.currentTarget.dataset.id
     var title = event.currentTarget.dataset.title
     wx.navigateTo({
-      url: "../uploadShareImage/index?id=" + id +"&title="+title,
+      url: "../uploadShareImage/index?id=" + id +"&title="+ encodeURIComponent(title),
     })
   },
 

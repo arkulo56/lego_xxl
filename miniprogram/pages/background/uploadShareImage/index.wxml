@@ -3,12 +3,20 @@
 </view>
 
 <view class='content'>
-  <image class='qrcode' mode='widthFix' src='cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/上传分享图片按钮素材.jpg'></image>
-  <image class='qrcode' mode='widthFix' src='cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/上传分享图片按钮素材1.jpg'></image>
+  <image class='qrcode' mode='widthFix' src='{{qrcode_img}}'></image>
+  <image class='qrcode' mode='widthFix' src='cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/上传分享图片按钮素材1.jpg' bindtap='choose_share_img'></image>
 </view>
 
-<view class='line-in'></view>
+<!-- 分割线 -->
+<view class="divLine"></view>
 
-<view class='share_image'>
-  <image></image>
+<!-- <image class='tmp_img' src='{{laocal_choose_path}}' mode='widthFix'></image> -->
+
+<view wx:if="{{tmp_sign==0}}" class='share_image'>
+  <canvas canvas-id='share_img' style="width:{{choose_img_width}}rpx;height:{{choose_img_height}}rpx;"></canvas>
 </view>
+<view>
+  <image src='{{laocal_caijian_path}}' style='width:75rpx;height:3000rpx;'></image>
+</view>
+
+<button class='sub'>提交</button>
