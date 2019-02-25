@@ -10,13 +10,13 @@
 <!-- 分割线 -->
 <view class="divLine"></view>
 
-<!-- <image class='tmp_img' src='{{laocal_choose_path}}' mode='widthFix'></image> -->
+<!-- <image class='tmp_img' src='{{laocal_choose_path}}' style='width:750rpx;' mode='widthFix'></image> -->
 
 <view wx:if="{{tmp_sign==0}}" class='share_image'>
-  <canvas canvas-id='share_img' style="width:{{choose_img_width}}rpx;height:{{choose_img_height}}rpx;"></canvas>
+  <canvas canvas-id='share_img' class='share_img_detail' style="width:{{choose_img_width/rdp}}px;height:4000rpx;"></canvas>
 </view>
-<view>
+<!-- <view>
   <image src='{{laocal_caijian_path}}' style='width:75rpx;height:3000rpx;'></image>
-</view>
+</view> -->
 
 <button class='sub'>提交</button>

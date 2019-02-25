@@ -10,11 +10,13 @@ Page({
     note_title:"",
     qrcode_img:"cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/上传分享图片按钮素材.jpg",
     qrcode_img_path:"",         //二维码的本地地址
+    share_img_buttom:"cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/fenxiangtupiandibu.jpg",    //分享图片底部
+    share_img_buttom_path:"",   //分享图片本地地址
     local_tmp_image:"",         //保存本地时采用的临时变量
 
     laocal_choose_path:"",      //相册选择后的图片临时文件地址
-    choose_img_width:1500,
-    choose_img_height:1000,
+    choose_img_width:0,
+    choose_img_height:0,
     laocal_caijian_path:"",     //裁剪后的图片
     tmp_sign:0
     
@@ -25,27 +27,41 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+
+    
     //屏幕物理像素
     wx.getSystemInfo({
       success: function (res) {
-        var perRpx = res.windowWidth/750
-        console.log(perRpx)
+        console.log(res.pixelRatio)
+        //res.windowsWidth这是屏幕的宽度，值的是虚拟像素
+        //下面这个公式，就是计算一个rpx对应多少个虚拟像素
         that.setData({
-          rdp: perRpx
+          rdp: res.pixelRatio
         })
       },
     })
 
+    //判断参数是否完整
     if (options.id && decodeURIComponent(options.title))
     {
+      //获取参数
       that.setData({
         note_id:options.id,
         note_title: decodeURIComponent(options.title)
       })
 
-      //获取小程序
+      //获取小程序分享二维码
       var r_q = that._getQrCode()
+      //获取分享底部图片到本地
+      var buttom_res = that.getImageToLocal1(that.data.share_img_buttom)
+      buttom_res.then(function () {
+        that.setData({
+          share_img_buttom_path: that.data.local_tmp_image
+        })
+      })
+
     }
+
 
 
   },
@@ -114,6 +130,9 @@ Page({
    * 4. 填充二维码
    * 5. 上传存储服务器
    * 6. 保存图片分享数据库
+   * 
+   * 
+   * 选择图片
    */
   choose_share_img:function(){
     var that = this
@@ -133,9 +152,12 @@ Page({
             })
             //这里开始调用剪裁图片
             var c1 = that._cutImage()
-            // c1.then(function(){
-            //   var c2 = that._cutImage1()
-            // })
+            c1.then(function(){
+              var c2 = that._cutImage1()
+              c2.then(function(){
+                that.saveImageToLocal()
+              })
+            })
           }
         })
         that.setData({
@@ -147,21 +169,25 @@ Page({
       },
     })
   },
-  //裁剪图片_1：把图片加载到canvas中
+  //把图片加载到canvas中
   _cutImage:function(){
     var that = this
     return new Promise(function(resolve,reject){
       console.log((that.data.choose_img_height * that.data.rdp))
       const ctx = wx.createCanvasContext('share_img')
-      /**
-       * 这里填充原始分享图到canvas中
-       * 1. drawImage函数的长款单位都是虚拟像素单位，而我们提供的图片使用的是物理像素
-       * 2. 我们导出的图片是750px（物理像素）宽的，长度不定
-       * 3. 虚拟像素和物理像素的比值：屏幕宽度（虚拟像素）/750 = 0.5 （也就是一个rpx占多少个虚拟像素，rpx和物理像素差不多）
-       * 4. 宽：虚拟像素全屏
-       * 5. 高：（图片物理像素）* 0.5 = 虚拟像素（在这块屏幕比下对应的虚拟像素）
-       */
-      ctx.drawImage(that.data.laocal_choose_path, 0, 0, wx.getSystemInfoSync().windowWidth, (that.data.choose_img_height * that.data.rdp))
+      //将简书长图添加至画布中
+      ctx.drawImage(that.data.laocal_choose_path, 0, 0, that.data.choose_img_width / that.data.rdp, that.data.choose_img_height / that.data.rdp)
+
+      //将保存二维码的底部加入到画布中,因为画布的高度是定死的2000px，所以这里就直接定义图片的y轴高度
+      //160是分享图片底部栏的物理像素高度
+      ctx.drawImage(that.data.share_img_buttom_path, 0, (2000 - (160 / that.data.rdp)), that.data.choose_img_width / that.data.rdp, 160 / that.data.rdp)
+
+      //将二维码加入到底部位置
+      ctx.drawImage(that.data.qrcode_img_path, 20, (2000 - (160 / that.data.rdp)+5),40,40)
+
+
+
+
       ctx.draw(true,function(){
         resolve()
       })
@@ -173,17 +199,10 @@ Page({
     return new Promise(function(resolve,reject){
       wx.canvasToTempFilePath({
         canvasId: 'share_img',
-        x: 0,
-        y: 0,
-        width: 375,
-        height: 3000,
-        destWidth: 375,
-        destHeight: 3000,
         success(res) {
           console.log(res)
           that.setData({
-            laocal_caijian_path: res.tempFilePath,
-            tmp_sign: 1
+            laocal_caijian_path: res.tempFilePath
           })
           resolve()
         },
@@ -197,7 +216,29 @@ Page({
     })
   },
 
+  /**
+   * 保存分享图片至用户手机相册
+   */
+  saveImageToLocal: function () {
+    var that = this
+    return new Promise(function (resolve, reject) {
 
+      wx.saveImageToPhotosAlbum({
+        filePath: that.data.laocal_caijian_path,
+        // fail(res) {
+        //   console.log("保存失败：", res)
+        //   wx.navigateBack({
+        //     delta: 1
+        //   })
+        // },
+        // success(res) {
+        //   wx.navigateBack({
+        //     delta: 1
+        //   })
+        // }
+      })
+    })
+  },
 
 
 
