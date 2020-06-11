@@ -8,7 +8,7 @@
     placeholder="请输入课后笔记标题"
     border="{{ false }}"
     bind:change="onChange"
-    clearable=true
+    clearable="{{ true }}"
     name="note_title"
   />
 </van-cell-group>
@@ -44,7 +44,7 @@
     placeholder="请设置封面图片"
     border="{{ false }}"
     bind:change="onChange"
-    clearable=true
+    clearable="{{ true }}"
     name="cover_img"
   />
 </van-cell-group>

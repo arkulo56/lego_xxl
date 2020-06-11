@@ -79,7 +79,7 @@ Page({
    */
   onLoad: function (options) {
     //初始化课程数据
-    db.collection("course").get().then(res => {
+    db.collection("course").orderBy("_id","asc").get().then(res => {
       //console.log(res.data[0])
       for(var i=0;i<res.data.length;i++)
       { 
@@ -94,8 +94,8 @@ Page({
     }) ;
 
     //初始化学员数据
-    db.collection("student").get().then(res=>{
-      //console.log(res.data)
+    db.collection("student").orderBy("_id","desc").get().then(res=>{
+      console.log(res.data)
       for(var j=0;j<res.data.length;j++)
       {
         student_all = res.data;

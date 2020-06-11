@@ -1,5 +1,5 @@
 {
-  "cloud":true,
+  "cloud": true,
   "pages": [
     "pages/index/index",
     "pages/note/detail",
@@ -18,25 +18,31 @@
     "pages/page_share/index",
     "pages/qrcode_demo/index",
     "pages/notice/index",
-    "pages/user_home/index"
+    "pages/user_home/index",
+    "pages/sign_up_scratch/index"
   ],
   "window": {
     "backgroundColor": "#e9eaec",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#e9eaec",
-    "navigationBarTitleText": "想象力机器人",
+    "navigationBarTitleText": "想象力少儿编程",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    },{
-      "pagePath": "pages/notice/index",
-      "text": "通知"
-    },{
-      "pagePath": "pages/user_home/index",
-      "text": "我的"    
-    }]
-  }
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/notice/index",
+        "text": "通知"
+      },
+      {
+        "pagePath": "pages/user_home/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }
