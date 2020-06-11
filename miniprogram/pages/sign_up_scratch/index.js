@@ -70,7 +70,7 @@ Page({
       //console.log(res)
 
       Dialog.alert({
-        title: '成功',
+        title: '成功', 
         message: '恭喜您，信息已经录入成功，我们会尽快安排孩子的课程！课程学习过程中，有很多的学习资料和笔记都将在该小程序中展示，因此希望您收藏该小程序，谢谢！',
       }).then(() => {
         // on close
