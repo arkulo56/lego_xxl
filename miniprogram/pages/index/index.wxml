@@ -8,32 +8,27 @@
   </block>
 </swiper>
 <!--头部广告 end-->
+<!--课程分类开始-->
+<van-cell-group id="note_id">
+  <van-cell bindtap="jumpNoteList" title="课程分类" icon="description" border="{{ true }}" is-link value="more" />
+</van-cell-group>
 
+<view class="classType">
+  <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/scratch课程分类.jpg"></image>
+  <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/硬件课程分类.jpg"></image>
+  <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/python课程分类.jpg"></image>
+  <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/竞赛算法.jpg"></image>
+</view>
+
+
+<!--课程分类 end-->
+
+<!--课程笔记开始-->
 <van-cell-group id="note_id">
   <van-cell bindtap="jumpNoteList" title="课程笔记" icon="description" border="{{ true }}" is-link value="more" />
 </van-cell-group>
 
-<!-- 这里是笔记循环体的开始 -->
-<scroll-view scroll-y="true" style='height: {{sc_height + "px"}}' class='sv' scroll-top="3"  bindscrolltolower="{{loadMore.hasMore ? 'bindLoadMore' : ''}}" lower-threshold="10">
-
-<view class='list-item' wx:for="{{list}}">
-  <view class='item-img' data-id='{{item._id}}' bindtap='jumpDetail'><image class='img_detail' src='{{item.cover_img}}'></image></view>
-  <view class='item-content'>
-    <view class='content_title' data-id='{{item._id}}' bindtap='jumpDetail'>{{item.note_title}}</view>
-    <view class='content_course'>课程：{{item.course_name}}</view>
-    <view class='content_teacher'>教师：{{item.teacher_name}} / 学员：{{item.student_name}}  </view>
-    <view class='item-button'>
-      <view class='content_status'>发布时间：{{item.addtime}}</view>
-      <!-- <view class='option'>
-        <text>阅读量:{{item.reading_account}}</text>
-      </view> -->
-    </view>
-  </view>
-</view>
-</scroll-view>
-
-<!-- 这里是笔记循环体的结束 -->
-
+<!--课程分类 end-->
 <view class='background_inter' wx:if="{{is_admin}}">
 <button type='default' bindtap='background_onclick'>后台</button>
 </view>

@@ -35,12 +35,12 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/notice/index",
-        "text": "通知"
+        "pagePath": "pages/user_home/index",
+        "text": "课程中心"
       },
       {
-        "pagePath": "pages/user_home/index",
-        "text": "我的"
+        "pagePath": "pages/sign_up_scratch/index",
+        "text": "报名咨询"
       }
     ]
   },
