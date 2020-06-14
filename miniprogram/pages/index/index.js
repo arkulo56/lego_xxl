@@ -21,7 +21,6 @@ Page({
     is_admin:false,
     //列表相关数据变量
     imgtmp: "cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/4.jpg",
-    list: [],
     pageLimit:5,
     adv_list:[]
   },
@@ -38,14 +37,6 @@ Page({
       //获取用户openID
       var q = that._getOpenId()
       q.then(function(){
-
-        //初始化数据
-        var p = that._getNote()
-        p.then(function () {
-            console.log("列表数据：",that.data.list)
-            that._getNoteRelation()
-        })
-
       })
 
     })
@@ -80,75 +71,7 @@ Page({
 
 
 
-  //获取笔记列表数据
-  _getNote: function () {
-    var that = this
-    return new Promise(function (resolve, reject) {
 
-      db.collection("course_note").where({
-        status:1
-      })
-        .limit(that.data.pageLimit)
-        .orderBy("addtime", "desc")
-        .get().then(res => {
-          console.log(res.data)
-          that.setData({
-            list: res.data
-          })
-          resolve("ok")
-        })
-
-    })
-  },
-
-  //为笔记查询相关数据：教师姓名，学生姓名，课程标题
-  _getNoteRelation: function () {
-    var that = this
-    var i = 0;
-
-    for (var i=0; i < that.data.list.length; i++) {
-      !function (j) {//注意这里，是为了防止循环中的异步
-
-        //这里是将服务器db.serverDate转换为本地的Date对象，然后进行格式化输出
-        var addtime = util.formatTime(new Date(that.data.list[j].addtime),2)
-        var xiabiao = "list[" + j + "].addtime"
-        that.setData({
-            [xiabiao]:addtime
-        })
-
-        //查询学生姓名
-        db.collection("student").where({
-          _id: that.data.list[j].student_id
-        }).get().then(res => {
-          var xiabiao = "list[" + j + "].student_name"
-          that.setData({
-            [xiabiao]: res.data[0].name
-          })
-        })
-        //查询课程标题
-        db.collection("course").where({
-          _id: that.data.list[j].course_id
-        }).get().then(res => {
-          //console.log(res.data)
-          var xiabiao = "list[" + j + "].course_name"
-          that.setData({
-            [xiabiao]: res.data[0].title
-          })
-        })
-        //查询教师名称
-        db.collection("teacher").where({
-          _id: that.data.list[j].teacher_id
-        }).get().then(res => {
-          var xiabiao = "list[" + j + "].teacher_name"
-          that.setData({
-            [xiabiao]: res.data[0].name
-          })
-        })
-
-
-      }(i)//这里结束部分       
-    }
-  },
 
 
 
@@ -210,19 +133,14 @@ Page({
     })
   },
 
-  //跳转课程笔记列表页
-  jumpNoteList:function(event){
-    wx.navigateTo({
-      url: '../note_list/index',
+  //跳转课程中心
+  jumpCourseCenter:function(event){
+    wx.switchTab({
+      url: '../course_center/index',
     })
   },
 
-  //预览跳转
-  jumpDetail: function (event) {
-    wx.navigateTo({
-      url: '../note/detail?_id=' + event.currentTarget.dataset.id,
-    })
-  },
+
 
 
 

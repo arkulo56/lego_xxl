@@ -68,6 +68,13 @@
 					"id": -1,
 					"name": "pages/sign_up_scratch/index",
 					"pathName": "pages/sign_up_scratch/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/course_center/index",
+					"pathName": "pages/course_center/index",
 					"scene": null
 				}
 			]

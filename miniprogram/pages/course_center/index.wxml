@@ -1,0 +1,11 @@
+<!--pages/course_center/index.wxml-->
+<view class="main">
+  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/scratch课程中心.jpg" class="imageDetail"></image>
+  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/硬件课程-课程中心.jpg" class="imageDetail"></image>
+  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/python课程分类-课程中心.jpg" class="imageDetail"></image>
+  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/竞赛算法-课程中心.jpg" class="imageDetail"></image>
+</view>
+
+<view class="button-view">
+  <text class="button-text">更多课程正在研发中......</text>
+</view>

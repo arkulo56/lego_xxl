@@ -19,7 +19,8 @@
     "pages/qrcode_demo/index",
     "pages/notice/index",
     "pages/user_home/index",
-    "pages/sign_up_scratch/index"
+    "pages/sign_up_scratch/index",
+    "pages/course_center/index"
   ],
   "window": {
     "backgroundColor": "#e9eaec",
@@ -35,7 +36,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/user_home/index",
+        "pagePath": "pages/course_center/index",
         "text": "课程中心"
       },
       {

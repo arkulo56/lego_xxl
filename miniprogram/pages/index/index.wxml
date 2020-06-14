@@ -10,7 +10,7 @@
 <!--头部广告 end-->
 <!--课程分类开始-->
 <van-cell-group id="note_id">
-  <van-cell bindtap="jumpNoteList" title="课程分类" icon="description" border="{{ true }}" is-link value="more" />
+  <van-cell bindtap="jumpCourseCenter" title="课程分类" icon="description" border="{{ true }}" is-link value="more" />
 </van-cell-group>
 
 <view class="classType">
@@ -19,16 +19,73 @@
   <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/python课程分类.jpg"></image>
   <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/竞赛算法.jpg"></image>
 </view>
-
-
 <!--课程分类 end-->
-
+<!--广告adv-1位置-->
+<view class="adv-1">
+  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/200元优惠持续进行中.png" class="adv-1-detail"></image>
+</view>
+<!--广告adv-1位置 end-->
 <!--课程笔记开始-->
 <van-cell-group id="note_id">
-  <van-cell bindtap="jumpNoteList" title="课程笔记" icon="description" border="{{ true }}" is-link value="more" />
+    <van-cell bindtap="jumpCourseNote" title="课程笔记" icon="description" border="{{ true }}" is-link value="more" />
 </van-cell-group>
 
+<view class="course_note">
+  <view class="course_note_item">
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/拯救波比打败病毒.gif" class="course_note_detail"></image>
+    <text class="note_title">拯救波比打败病毒</text>
+  </view>
+
+  <view class="course_note_item">
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/时钟.gif" class="course_note_detail"></image>
+    <text class="note_title">魔法时钟</text>
+  </view>
+
+    <view class="course_note_item">
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/经典乒乓球.gif" class="course_note_detail"></image>
+    <text class="note_title">经典乒乓球</text>
+  </view>
+
+    <view class="course_note_item">
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/飞机大战.gif" class="course_note_detail"></image>
+    <text class="note_title">飞机大战</text>
+  </view>
+
+  <view class="course_note_item">
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/拯救波比打败病毒.gif" class="course_note_detail"></image>
+    <text class="note_title">拯救波比打败病毒</text>
+  </view>
+
+  <view class="course_note_item">
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/时钟.gif" class="course_note_detail"></image>
+    <text class="note_title">魔法时钟</text>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="container">
+  <view class="divLine"></view>
+</view>
+
+<!--早期教育乐高位置-->
+<view class="adv-1">
+  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/旧版乐高笔记窄版.jpg" class="adv-2-detail"></image>
+</view>
+<!--早期教育乐高 end-->
+
+
 <!--课程分类 end-->
+<!--
 <view class='background_inter' wx:if="{{is_admin}}">
 <button type='default' bindtap='background_onclick'>后台</button>
+</view>
+-->
+<!--右侧跟随按钮-->
+<view class="gensui_bar">
+  <view class="gensui_detail">
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/分享icon.png" class="gensui_bar_detail"></image>
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/电话icon.png" class="gensui_bar_detail"></image>
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/微信icon.png" class="gensui_bar_detail"></image>
+    <view class="gensui_bar_detail" bindtap='background_onclick'></view>
+  </view>
 </view>

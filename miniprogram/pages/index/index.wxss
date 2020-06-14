@@ -27,6 +27,93 @@
 {
   width: 325rpx;
   height: 200rpx;
-  background-color: dodgerblue;
+  background-color: bisque;
   margin:20rpx;
+}
+
+/*课程笔记开始*/
+.course_note
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #fffef9;
+  padding-bottom: 20rpx;
+}
+.course_note_item
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.note_title
+{
+  font-size: 30rpx;
+  color: cadetblue;
+}
+.course_note_detail
+{
+  width: 325rpx;
+  height: 244rpx;
+  background-color: bisque;
+  margin: 20rpx;
+}
+
+
+/*广告adv-1位置*/
+.adv-1
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #fffef9;
+  padding-bottom: 20rpx;
+}
+.adv-1-detail
+{
+  width:700rpx;
+  height: 150rpx;
+}
+/*旧版乐高部分的css，公用adv-1的样式*/
+.adv-2-detail
+{
+  width:700rpx;
+  height: 108rpx;
+  margin-top: 20rpx;
+}
+
+/*分割线样式*/
+.divLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 3rpx;
+ }
+
+
+/*右侧跟随按钮部分*/
+.gensui_bar
+{
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  top: 1000rpx;
+  right: 2px;
+  z-index: 30;
+}
+.gensui_detail
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*background-color: #fffef9;
+  opacity: 0.3;*/
+}
+.gensui_bar_detail
+{
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 1rpx;
 }
