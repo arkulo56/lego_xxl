@@ -75,6 +75,27 @@
 					"id": -1,
 					"name": "pages/course_center/index",
 					"pathName": "pages/course_center/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/course_detail/index",
+					"pathName": "pages/course_detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/background/course_add/index",
+					"pathName": "pages/background/course_add/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/background/index/index",
+					"pathName": "pages/background/index/index",
 					"scene": null
 				}
 			]

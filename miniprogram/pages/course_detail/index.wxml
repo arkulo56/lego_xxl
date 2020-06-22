@@ -1,0 +1,12 @@
+<wxs module="t_format" src="../../utils/util.wxs"></wxs>
+<view class='content'>
+  <view class='content-title'>
+    <text class='title'>{{detail.title}}</text>
+  </view>
+  <view class='adv'>
+    <image style='width:700rpx;' mode='widthFix' src='{{detail.cover_photo}}'></image>
+  </view>
+  <view class='content-detail'>
+    <wemark md="{{detail.content}}" link highlight type="wemark"></wemark>
+  </view>
+</view>

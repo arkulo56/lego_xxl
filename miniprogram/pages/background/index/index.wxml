@@ -4,7 +4,7 @@
     <navigator url='../discount_list/index' class='nag'>促销活动</navigator>
   </view>
   <view class='content'>
-    <text class='nag_tmp' bindtap='tishi'>机构管理</text>
+    <navigator url='../course_add/index' class='nag'>编程课程</navigator>
     <text class='nag_tmp' bindtap='tishi'>教师管理</text>
   </view>
   <view class='content'>

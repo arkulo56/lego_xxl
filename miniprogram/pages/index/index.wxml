@@ -14,10 +14,10 @@
 </van-cell-group>
 
 <view class="classType">
-  <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/scratch课程分类.jpg"></image>
-  <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/硬件课程分类.jpg"></image>
-  <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/python课程分类.jpg"></image>
-  <image class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/竞赛算法.jpg"></image>
+  <image data-id="464365195ef0a3600003ac2769517f98" bindtap="courseJump" class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/scratch课程分类.jpg"></image>
+  <image data-id="9abbc6f45ef0a8980002e3cd36d5d0b3" bindtap="courseJump" class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/硬件课程分类.jpg"></image>
+  <image data-id="fcca363a5ef0ada3000366b148f1e74f" bindtap="courseJump" class="imageview" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/python课程分类.jpg"></image>
+  <image class="imageview" data-id="9abbc6f45ef0b5b30002eae44e925ce6" bindtap="courseJump" src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/竞赛算法.jpg"></image>
 </view>
 <!--课程分类 end-->
 <!--广告adv-1位置-->
@@ -69,7 +69,7 @@
 
 <!--早期教育乐高位置-->
 <view class="adv-1">
-  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/旧版乐高笔记窄版.jpg" class="adv-2-detail"></image>
+  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/旧版乐高笔记窄版.jpg" class="adv-2-detail" bindtap="stumpOldLego"></image>
 </view>
 <!--早期教育乐高 end-->
 
@@ -83,9 +83,11 @@
 <!--右侧跟随按钮-->
 <view class="gensui_bar">
   <view class="gensui_detail">
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/后台.png" class="gensui_bar_detail" wx:if="{{is_admin}}" bindtap="background_onclick">
+    </image>
     <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/分享icon.png" class="gensui_bar_detail"></image>
     <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/电话icon.png" class="gensui_bar_detail"></image>
     <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/微信icon.png" class="gensui_bar_detail"></image>
-    <view class="gensui_bar_detail" bindtap='background_onclick'></view>
+    
   </view>
 </view>

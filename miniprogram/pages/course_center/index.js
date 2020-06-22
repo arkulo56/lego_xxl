@@ -15,6 +15,17 @@ Page({
     
   },
 
+
+  //课程详情页跳转
+  courseJump:function(event)
+  {
+    wx.navigateTo({
+      url: '../course_detail/index?course_id='+event.currentTarget.dataset.id,
+    })
+
+  },
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

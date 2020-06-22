@@ -124,7 +124,15 @@ Page({
       url: "../background/discount_detail/index?_id=" + event.currentTarget.dataset.id,
     })
   },
+  
+  //课程详情页跳转
+  courseJump:function(event)
+  {
+    wx.navigateTo({
+      url: '../course_detail/index?course_id='+event.currentTarget.dataset.id,
+    })
 
+  },
 
   //后台跳转函数
   background_onclick:function(){
@@ -140,6 +148,12 @@ Page({
     })
   },
 
+  //跳转旧版乐高笔记
+  stumpOldLego:function(){
+    wx.navigateTo({
+      url: '../note_list/index',
+    })
+  },
 
 
 
