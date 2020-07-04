@@ -117,3 +117,20 @@
   height: 100rpx;
   margin-bottom: 1rpx;
 }
+
+.kf_button
+{
+  display: inline-block;
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  background: salmon;
+  right: 2px;
+  opacity: 0;
+  z-index: 35;
+}
+
+
+
+
+

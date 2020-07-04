@@ -90,12 +90,6 @@ Page({
     })
   },
 
-
-
-
-
-
-
   //获取用户openid
   _getOpenId:function(){
     var that = this
@@ -174,7 +168,14 @@ Page({
     })
   },
 
-
+  /**
+   * 拨打电话功能
+   */
+  callPhone:function(){
+    wx.makePhoneCall({
+      phoneNumber: '18510330075',
+    })
+  },
 
 
   /**

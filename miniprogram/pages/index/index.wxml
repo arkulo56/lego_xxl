@@ -62,9 +62,17 @@
   <view class="gensui_detail">
     <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/后台.png" class="gensui_bar_detail" wx:if="{{is_admin}}" bindtap="background_onclick">
     </image>
+    <view>
     <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/分享icon.png" class="gensui_bar_detail"></image>
-    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/电话icon.png" class="gensui_bar_detail"></image>
-    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/微信icon.png" class="gensui_bar_detail"></image>
-    
+    <button class="kf_button" open-type="share"></button>
+    </view>
+
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/电话icon.png" class="gensui_bar_detail" bindtap="callPhone"></image>
+
+    <view>
+      <image  src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/微信icon.png" class="gensui_bar_detail"></image>
+      <button class="kf_button" open-type="contact" session-from="weapp"></button>
+    </view>
+  
   </view>
 </view>
