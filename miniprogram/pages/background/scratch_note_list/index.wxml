@@ -1,0 +1,34 @@
+<view class="header">
+  <view class="header-item-1">
+    <picker class="header-item-picker" range="{{course_level_list}}" range-key="name" value="t_index" bindchange="pickerChange">
+      <text>请选择：{{course_level_list[t_index].name}}</text>
+    </picker>
+  </view>
+  <view class="header-item-2">
+    <view class="header-item-jia" bindtap="jumpDetail">+</view>
+  </view>
+</view>
+
+<view class="body">
+
+  <view class="body-item" wx:for="{{note_list}}">
+    <image src="{{item.course_cover}}" class="body-item-cover" mode="widthFix"></image>
+
+    <view class="body-item-center">
+      <view class="body-item-right-name">
+        <text>{{item.course_name}}</text> 
+      </view>
+      <view class="body-item-right-level">
+        <text>{{course_level_list[t_index].name}}</text>
+      </view>
+    </view>
+
+    <view class="body-item-right">
+      <text data-id="{{item._id}}" bindtap="viewDetail">查看</text>
+      <!--<text data-id="{{item_id}}" bindtap="viewDetele">删除</text>-->
+    </view>
+  </view>
+
+  
+
+</view>

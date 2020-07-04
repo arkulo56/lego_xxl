@@ -16,13 +16,17 @@
     "pages/background/discount_list/index",
     "pages/background/discount_detail/index",
     "pages/background/course_add/index",
+    "pages/background/scratch_note_add/index",
+    "pages/background/scratch_student_list/index",
+    "pages/background/scratch_note_list/index",
     "pages/page_share/index",
     "pages/qrcode_demo/index",
     "pages/notice/index",
     "pages/user_home/index",
     "pages/sign_up_scratch/index",
     "pages/course_center/index",
-    "pages/course_detail/index"
+    "pages/course_detail/index",
+    "pages/scratch_note_detail/index"
   ],
   "window": {
     "backgroundColor": "#e9eaec",

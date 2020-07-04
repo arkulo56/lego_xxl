@@ -1,5 +1,10 @@
 /* pages/sign_up_scratch/index.wxss */
-
+.header
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .title
 {
   display: flex;
@@ -9,28 +14,35 @@
   font-size: 30px;
   font-weight: bold;
   color: #336699;
-  padding: 20px;
+  padding: 20rpx;
+  width: 680rpx;
 }
-
 .info
 {
   display: flex;
-  font-size: 12px;
+  font-size: 20rpx;
   color: darkslategray;
-  margin-top: 20px;
+  margin-top: 20rpx;
 }
 
+/*表单*/
+.body
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .formStyle
 {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 20rpx;
   background-color: #fffef9;
-  
+  width: 720rpx;
 }
 .one_input
 {
-  padding: 5px;
+  padding: 15rpx;
 }
 
 .input-name
@@ -38,8 +50,10 @@
   color: darkslategray;
   font-size: small;
 }
-.input-placeholder 
-{  
+
+.input-placeholder
+{
+  width: 600rpx;
   display: block; /*input是行级元素，不是块级元素，如果要设置高度，就得设置为块级单位才可以*/
   color: darkgray; 
   font-size:35rpx;
@@ -47,4 +61,47 @@
   background-color: white;
   outline-style: none ;     /*和下面这句配合实现边框颜色*/
   border: 1px solid #ccc;  
+}
+
+
+/*按钮*/
+.subClass
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  padding: 15rpx;
+  width: 600rpx;
+}
+.buttonSub
+{
+  width: 600rpx;
+}
+
+/*右侧跟随按钮部分*/
+.gensui_bar
+{
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  top: 900rpx;
+  right: 2px;
+  z-index: 30;
+}
+.gensui_detail
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*background-color: #fffef9;
+  opacity: 0.3;*/
+}
+.gensui_bar_detail
+{
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 1rpx;
 }

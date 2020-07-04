@@ -1,0 +1,98 @@
+/* pages/scratch_note_detail/index.wxss */
+
+/*
+* 头部位置整体宽度设计
+* 内缩进: header-5rpx,detail-15rpx,总和40rpx
+* 宽度: 750-40=710rpx
+*/
+.header
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5rpx;
+}
+.header-detail
+{
+  display: flex;
+  flex-direction: column;
+  padding: 15rpx;
+  background-color: rgb(250, 250, 250);
+}
+.header-detail-title
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 710rpx;
+  color: rgb(50, 73, 114);
+  font-size: 45rpx;
+}
+.header-detail-line
+{
+  height: 1rpx;
+  background-color: darkblue;
+}
+.header-detail-courseLevel
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-detail-courseLevel-left
+{
+  font-size: 22rpx;
+  color: rgb(50, 73, 114);
+}
+.header-detail-courseLevel-right
+{
+  font-size: 22rpx;
+  color: rgb(95, 139, 214);
+}
+
+/*
+* 课程内容部分
+* 图片部分
+*/
+.content
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10rpx;
+  padding: 5rpx;
+}
+.content-cover
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(250, 250, 250);
+  width: 740rpx;
+}
+.content-cover-image
+{
+  width: 650rpx;
+  margin-top: 20rpx;
+}
+.content-cover-title
+{
+  font-size: 25rpx;
+  color: rgb(50, 73, 114);
+  margin-bottom: 20rpx;
+}
+/*
+* 课程内容部分
+* 正文部分
+*/
+.content-detail
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(250, 250, 250);
+  width: 700rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  color:  rgb(50, 73, 114);
+}

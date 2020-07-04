@@ -1,0 +1,93 @@
+/*头部筛选条件*/
+.filter
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  background-color: floralwhite;
+  padding: 10rpx;
+  font-size: 35rpx;
+  color: darkolivegreen;
+}
+.select_content
+{
+  color: cadetblue;
+  font-size: 30rpx;
+}
+
+/*列表外层view*/
+.list
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx;
+  margin-top: 20rpx;
+  /*background-color: floralwhite;*/
+}
+/*每条学生记录*/
+.list_item
+{
+  /*background-color: dimgray;*/
+  width: 730rpx; /*上一层pdding是左右各10rpx，这层的宽度就不能是750，要不然就两头顶了*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 25rpx;
+}
+.list_item_left
+{
+  background-color: floralwhite;
+  width: 620rpx;/*给右侧让出来5rpx的margin*/
+  margin-right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10rpx;
+  padding-left: 20rpx;
+}
+.list_item_right
+{
+  background-color: azure;
+  width: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 20rpx;
+  color: slategray;
+}
+
+/*每条记录里面左侧部分内部的文字*/
+.list_item_row1
+{
+  display: flex;
+  flex-direction: row;
+  font-size: 35rpx;
+  color: rgb(7, 49, 88);
+}
+.list_item_row2
+{
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  color: rgb(35, 44, 99);
+}
+.list_item_row3
+{
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  color: rgb(35, 44, 99);
+}
+
+.list_item_left_text
+{
+  margin-right: 20rpx;
+}
+.list_item_left_area
+{
+  margin-right: 10rpx;
+}

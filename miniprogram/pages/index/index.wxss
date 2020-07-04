@@ -98,7 +98,7 @@
   position: fixed;
   width: 100rpx;
   height: 100rpx;
-  top: 1000rpx;
+  top: 900rpx;
   right: 2px;
   z-index: 30;
 }

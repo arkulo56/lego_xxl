@@ -22,7 +22,8 @@ Page({
     //列表相关数据变量
     imgtmp: "cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925/ad_img/4.jpg",
     pageLimit:5,
-    adv_list:[]
+    adv_list:[],
+    note_list: []
   },
 
   /**
@@ -33,13 +34,13 @@ Page({
     //获取广告数据
     var adv = that._getAdvList()
     adv.then(function(){
-
       //获取用户openID
       var q = that._getOpenId()
       q.then(function(){
       })
-
-    })
+    });
+    //获取scratch笔记
+    that._getCourseNoteList()
   },
 
   /**
@@ -69,7 +70,25 @@ Page({
 
   },
 
-
+  /**
+   * 获取课程教案笔记列表数据
+   */
+  _getCourseNoteList:function(){
+    var that = this;
+    return new Promise(function(resolve,reject){
+      db.collection("scratch_course_note")
+        .orderBy("addtime","desc")
+        .limit(6)
+        .get()
+        .then(res=>{
+        console.log(res)
+        that.setData({
+          note_list:res.data
+        })
+        resolve("ok")
+      })
+    })
+  },
 
 
 

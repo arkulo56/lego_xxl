@@ -1,15 +1,14 @@
 <view class='bk_enter'>
   <view class='content'>
-    <navigator url='../note_list/index' class='nag'>教学笔记</navigator>
-    <navigator url='../discount_list/index' class='nag'>促销活动</navigator>
+    <navigator url='../note_list/index' class='nag'>乐高笔记</navigator>
+    <navigator url='../discount_list/index' class='nag'>广告活动</navigator>
   </view>
   <view class='content'>
-    <navigator url='../course_add/index' class='nag'>编程课程</navigator>
-    <text class='nag_tmp' bindtap='tishi'>教师管理</text>
+    <navigator url='../course_add/index' class='nag'>编程课程介绍</navigator>
+    <navigator url='../scratch_note_list/index' class='nag'>编程笔记</navigator>
   </view>
   <view class='content'>
-    <text class='nag_tmp' bindtap='tishi'>学员管理</text>
-    <!-- <navigator url='' class='nag'>...</navigator> -->
+    <navigator url='../scratch_student_list/index' class='nag'>学员管理</navigator>
     <text class='nag_tmp' bindtap='tishi'>...</text>
   </view>
 </view>

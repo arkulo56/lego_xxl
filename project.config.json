@@ -96,6 +96,41 @@
 					"id": -1,
 					"name": "pages/background/index/index",
 					"pathName": "pages/background/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/background/scratch_note_add/index",
+					"pathName": "pages/background/scratch_note_add/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/background/scratch_student_list/index",
+					"pathName": "pages/background/scratch_student_list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/background/scratch_note_add/index",
+					"pathName": "pages/background/scratch_note_add/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/background/scratch_note_list/index",
+					"pathName": "pages/background/scratch_note_list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/scratch_note_detail/index",
+					"pathName": "pages/scratch_note_detail/index",
 					"scene": null
 				}
 			]

@@ -1,6 +1,7 @@
 // pages/sign_up_scratch/index.js
 import Dialog from '../../dist/dialog/dialog';
 const db = wx.cloud.database()
+const app = getApp()
 //var util = require('../../../utils/util.js')
 Page({
 
@@ -8,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    openid : ""
   },
   
   /**
@@ -17,6 +18,7 @@ Page({
    */
   formSubmit:function(e)
   {
+    var that = this;
     //console.log("结果：",e.detail.value);
     if(e.detail.value.student_name.length==0
       || e.detail.value.student_age.length==0
@@ -53,17 +55,19 @@ Page({
       return;     
     }    
 
-    const note = db.collection("sign_up_scratch");
+    const note = db.collection("scratch_student");
     note.add(
       {
         data:{
           "student_name":e.detail.value.student_name,
           "student_age":e.detail.value.student_age,
           "student_phone":e.detail.value.student_phone,
-          "student_city":e.detail.value.studnet_city,
+          "student_city":e.detail.value.student_city,
           "student_area":e.detail.value.student_area,
           "student_id":e.detail.value.student_codetime,
-          "addtime": db.serverDate()//util.formatTime(new Date(),2)
+          "student_class":"0",
+          "addtime": db.serverDate(),
+          "_openid":that.openid
         }
       }
     ).then(res=>{
@@ -83,14 +87,27 @@ Page({
     })
   },
 
-
-
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    /*
+    var that = this
+    //获取openID，首页曾经获取过关openID，如果没有，则重新获取一次
+    if(app.globalData.openid==null)
+    {
+      var p = that._getOpenId();
+      p.then(function(){
+        that.setData({
+          openid:app.globalData.openid
+        })
+      })
+    }else{
+      that.setData({
+        openid:app.globalData.openid
+      })
+    }
+    */
   },
 
   /**

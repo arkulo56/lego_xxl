@@ -1,0 +1,36 @@
+
+<view class="filter"> 
+  <picker bindchange="bindPickerChange" value="{{t_index}}" range="{{scratch_class}}" range-key="name">
+      <view class="picker">
+        选择班级：<text class="select_content">{{scratch_class[t_index].name}}</text>
+      </view>
+  </picker>
+</view>
+
+<view class="list">
+
+  <view class="list_item" wx:for="{{list}}">
+    <!--每条记录的左边部分-->
+    <view class="list_item_left">
+      <view class="list_item_row1">
+        <text class="list_item_left_text">{{item.student_name}} ({{item.student_age}}岁)</text>
+        <text class="list_item_left_text">{{item.student_phone}}</text>
+      </view>
+      <view class="list_item_row2">
+        <text>{{scratch_class[t_index].name}}</text>
+      </view>
+      <view class="list_item_row3">
+        <text>{{item.student_city}}</text>
+        <text>{{item.student_area}}</text>
+      </view>
+    </view>
+    <!--每条学生记录的右边部分-->
+    <view class="list_item_right">
+      <picker data-id="{{item._id}}" data-index="{{item.index}}" bindchange="bindSetClass" value="{{s_index}}" range="{{scratch_class}}" range-key="name">
+        <text>设置班级</text>
+      </picker>
+    </view>
+  </view>
+
+
+</view>

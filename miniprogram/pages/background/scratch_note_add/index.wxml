@@ -1,0 +1,40 @@
+<!--pages/background/scratch_note_add/index.wxml-->
+<view class="header">
+  <view class="header-text">
+    <text >添加课程教案</text>
+  </view>
+</view>
+
+<form bindsubmit="formSubmit">
+<view class="formTable">
+    
+    <view class="formItem">
+      <text>课程名称:</text>
+      <input class="fromItem-input" name="course_name"></input>
+    </view>
+    
+    <view class="formItem">
+      <text>课程包名:</text>
+      <picker class="form-picker" name="course_level" value="{{t_index}}" range="{{level_list}}" range-key="name" bindchange="pickChange">
+        <view class="picker-item">
+          <text>{{level_list[t_index].name}}</text>
+        </view>
+      </picker>
+    </view>  
+
+    <view class="formItem">
+      <text>课程封面:</text>
+      <input class="fromItem-input" name="course_cover"></input>
+    </view>
+
+    <view class="formItem">
+      <text>课程封面:</text>
+      <textarea class="fromItem-input" name="course_content" maxlength="-1"></textarea>
+    </view>
+
+    <view class="formItem">
+      <button form-type="submit" class="form-item-button">提交</button>
+    </view>
+
+</view>
+</form>

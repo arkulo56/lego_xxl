@@ -22,44 +22,21 @@
 <!--课程分类 end-->
 <!--广告adv-1位置-->
 <view class="adv-1">
-  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/200元优惠持续进行中.png" class="adv-1-detail"></image>
+  <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/200元优惠中间广告.png" class="adv-1-detail"></image>
 </view>
 <!--广告adv-1位置 end-->
 <!--课程笔记开始-->
 <van-cell-group id="note_id">
-    <van-cell bindtap="jumpCourseNote" title="课程笔记" icon="description" border="{{ true }}" is-link value="more" />
+    <van-cell bindtap="jumpCourseNote" title="课程笔记" icon="description" border="{{ true }}"  />
 </van-cell-group>
 
 <view class="course_note">
-  <view class="course_note_item">
-    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/拯救波比打败病毒.gif" class="course_note_detail"></image>
-    <text class="note_title">拯救波比打败病毒</text>
+
+  <view class="course_note_item" wx:for="{{note_list}}">
+    <image src="{{item.course_cover}}" class="course_note_detail"></image>
+    <text class="note_title">{{item.course_name}}</text>
   </view>
 
-  <view class="course_note_item">
-    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/时钟.gif" class="course_note_detail"></image>
-    <text class="note_title">魔法时钟</text>
-  </view>
-
-    <view class="course_note_item">
-    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/经典乒乓球.gif" class="course_note_detail"></image>
-    <text class="note_title">经典乒乓球</text>
-  </view>
-
-    <view class="course_note_item">
-    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/飞机大战.gif" class="course_note_detail"></image>
-    <text class="note_title">飞机大战</text>
-  </view>
-
-  <view class="course_note_item">
-    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/拯救波比打败病毒.gif" class="course_note_detail"></image>
-    <text class="note_title">拯救波比打败病毒</text>
-  </view>
-
-  <view class="course_note_item">
-    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/scratch_note_gif/时钟.gif" class="course_note_detail"></image>
-    <text class="note_title">魔法时钟</text>
-  </view>
 </view>
 
 <!-- 分割线 -->

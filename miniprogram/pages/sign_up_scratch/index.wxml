@@ -1,44 +1,63 @@
 <!--pages/sign_up_scratch/index.wxml-->
-<view class="title">
-  <text>学员信息填报表</text>
-  <text class="info">注：该信息是为满足创建学习账号及相关教学活动所用，不涉及财务及个人隐私信息，请放心填写。</text>
-</view>
-
-<form bindsubmit='formSubmit' bindreset='formReset'>
-<view class="formStyle">
-  <view class="one_input"> 
-    <text class="input-name">> 姓名</text>
-    <input  placeholder=""  class="input-placeholder" name="student_name" /> 
-  </view>
-  
-  <view class="one_input"> 
-    <text class="input-name">> 年龄(岁)</text>
-    <input  placeholder="" type="number"  class="input-placeholder" name="student_age" /> 
-  </view>
-
-  <view class="one_input"> 
-    <text class="input-name">> 联系电话（手机号）</text>
-    <input  placeholder="" type="number" class="input-placeholder" name="student_phone" /> 
-  </view>
-
-  <view class="one_input"> 
-    <text class="input-name">> 居住城市（例如：北京市）</text>
-    <input  placeholder="北京市" value="北京市" class="input-placeholder" name="student_city" /> 
-  </view>
-
-  <view class="one_input"> 
-    <text class="input-name">> 居住城区（例如：海淀区）</text>
-    <input  placeholder="海淀区" value="海淀区"  class="input-placeholder" name="student_area" /> 
-  </view>
-
-  <view class="one_input"> 
-    <text class="input-name">> 学习编程时间（月）</text>
-    <input  placeholder="12" value="12" type="number" class="input-placeholder" name="student_codetime" /> 
-  </view>
-
-  <view class="one_input"> 
-    <button type="default" form-type="submit">提    交</button>
+<view class="header">
+  <view class="title">
+    <text>学员信息填报表</text>
+    <text class="info">注：该信息是为满足创建学习账号及相关教学活动所用，不涉及财务及个人隐私信息，请放心填写。</text>
   </view>
 </view>
-</form>
+
+
+  <form bindsubmit='formSubmit' bindreset='formReset'>
+  <view class="body">
+    <view class="formStyle">
+
+      <view class="one_input"> 
+        <text class="input-name">> 姓名</text>
+        <input  placeholder=""  class="input-placeholder" name="student_name" /> 
+      </view>
+      
+      <view class="one_input"> 
+        <text class="input-name">> 年龄(岁)</text>
+        <input  placeholder="" type="number"  class="input-placeholder" name="student_age" /> 
+      </view>
+
+      <view class="one_input"> 
+        <text class="input-name">> 联系电话（手机号）</text>
+        <input  placeholder="" type="number" class="input-placeholder" name="student_phone" /> 
+      </view>
+
+      <view class="one_input"> 
+        <text class="input-name">> 居住城市（例如：北京市）</text>
+        <input class="input-placeholder" name="student_city" /> 
+      </view>
+
+      <view class="one_input"> 
+        <text class="input-name">> 居住城区（例如：海淀区）</text>
+        <input class="input-placeholder" name="student_area" /> 
+      </view>
+
+      <view class="one_input"> 
+        <text class="input-name">> 学习编程时间（月）</text>
+        <input type="number" class="input-placeholder" name="student_codetime" /> 
+      </view>
+
+      <view class="subClass"> 
+        <view><button class="buttonSub" type="default" form-type="submit">提    交</button></view>
+      </view>
+    </view>
+  </view>
+  </form>
+
 <van-dialog id="van-dialog" />
+
+<!--右侧跟随按钮-->
+<view class="gensui_bar">
+  <view class="gensui_detail">
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/后台.png" class="gensui_bar_detail" wx:if="{{is_admin}}" bindtap="background_onclick">
+    </image>
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/分享icon.png" class="gensui_bar_detail"></image>
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/电话icon.png" class="gensui_bar_detail"></image>
+    <image src="cloud://logo-xxl-3e7925.6c6f-logo-xxl-3e7925-1257948763/page_image/微信icon.png" class="gensui_bar_detail"></image>
+    
+  </view>
+</view>

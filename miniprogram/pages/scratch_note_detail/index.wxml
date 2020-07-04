@@ -1,0 +1,28 @@
+<!--pages/scratch_note_detail/index.wxml-->
+<view class="header">
+  <view class="header-detail">
+    <view class="header-detail-title">
+      <text>{{detail.course_name}}</text>
+    </view>
+    <view class="header-detail-line"></view>
+    <view class="header-detail-courseLevel">
+      <view class="header-detail-courseLevel-left">
+        <text>{{course_level}}</text>
+      </view>
+      <view class="header-detail-courseLevel-right">
+        <text>分享可以帮我们走的更远！</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--课程内容-->
+<view class='content'>
+  <view class='content-cover'>
+    <image mode='widthFix' src='{{detail.course_cover}}' class="content-cover-image"></image>
+    <text class="content-cover-title">--课程效果--</text>
+  </view>
+  <view class='content-detail'>
+    <wemark md="{{detail.course_content}}" link highlight type="wemark"></wemark>
+  </view>
+</view>

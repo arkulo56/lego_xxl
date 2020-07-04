@@ -1,0 +1,86 @@
+/* pages/background/scratch_note_list/index.wxss */
+.header
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+.header-item-1
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: ghostwhite;
+  padding: 20rpx;
+  width: 330rpx;
+  font-size: 30rpx;
+  color: rgb(85, 126, 128);
+}
+.header-item-2
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: ghostwhite;
+  padding: 20rpx;
+  width: 330rpx;
+  font-size: 30rpx;
+}
+
+
+/*列表部分*/
+.body
+{
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+* 两边留白5rpx，图片宽度246rpx，中间文字394rpx（包含14的padding和380的宽度），右侧100rpx；
+*
+*/
+.body-item
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5rpx;
+  margin-top: 10rpx;
+}
+.body-item-cover
+{
+  background-color: cornsilk;
+  width: 246rpx;
+}
+.body-item-center
+{
+  background-color: ghostwhite;
+  padding-left: 14rpx;
+  padding-right: 10rpx;
+  width: 370rpx;
+}
+.body-item-right-name
+{
+  font-size: 35rpx;
+  color: rgb(54, 109, 110);
+  margin-top: 15rpx;
+}
+.body-item-right-level
+{
+  font-size: 30rpx;
+  color: darkgray;
+  margin-top: 10rpx;
+}
+
+.body-item-right
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100rpx;
+  background-color: rgb(223, 233, 223);
+  font-size: 30rpx;
+  color: rgb(100, 103, 109);
+}
