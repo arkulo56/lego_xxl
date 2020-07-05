@@ -31,9 +31,9 @@
 </van-cell-group>
 
 <view class="course_note">
-
+  <!--课程笔记循环体-->
   <view class="course_note_item" wx:for="{{note_list}}">
-    <image src="{{item.course_cover}}" class="course_note_detail"></image>
+    <image bindtap="viewDetail" data-id="{{item._id}}" src="{{item.course_cover}}" class="course_note_detail"></image>
     <text class="note_title">{{item.course_name}}</text>
   </view>
 
@@ -50,13 +50,6 @@
 </view>
 <!--早期教育乐高 end-->
 
-
-<!--课程分类 end-->
-<!--
-<view class='background_inter' wx:if="{{is_admin}}">
-<button type='default' bindtap='background_onclick'>后台</button>
-</view>
--->
 <!--右侧跟随按钮-->
 <view class="gensui_bar">
   <view class="gensui_detail">

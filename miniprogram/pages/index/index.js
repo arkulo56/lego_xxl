@@ -144,7 +144,17 @@ Page({
     wx.navigateTo({
       url: '../course_detail/index?course_id='+event.currentTarget.dataset.id,
     })
+  },
 
+    /**
+   * 查看课程笔记详情
+   */
+  viewDetail:function(event){
+    var that = this;
+    console.log(event)
+    wx.navigateTo({
+      url: '../scratch_note_detail/index?_id='+event.currentTarget.dataset.id,
+    })
   },
 
   //后台跳转函数
